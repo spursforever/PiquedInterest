@@ -1,9 +1,9 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+# from flask_login import UserMixin
 
 
-class User(db.Model, UserMixin):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -25,10 +25,10 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
     
     # Single user can create many pins
-    pins = db.relationship("Pin", back_populates="user", cascade="all,delete")
+    pins = db.relationship("Pin", back_populates="users")
 
     # Single user can post many comments
-    comments = db.relationship("Comment", back_populates="user", cascade="all, delete")
+    comments = db.relationship("Comment", back_populates="users")
 
     def to_dict(self):
         return {
@@ -37,5 +37,6 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'email': self.email,            
             'profile_pic': self.profile_pic,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            "updated_at": self.updated_at,
         }
