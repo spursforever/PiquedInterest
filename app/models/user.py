@@ -1,9 +1,9 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
-# from flask_login import UserMixin
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -36,7 +36,5 @@ class User(db.Model):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'email': self.email,            
-            'profile_pic': self.profile_pic,
-            'created_at': self.created_at,
-            "updated_at": self.updated_at,
+            'profile_pic': self.profile_pic,            
         }

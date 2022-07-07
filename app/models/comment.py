@@ -1,8 +1,8 @@
 from .db import db
-# from flask_login import UserMixin
+from flask_login import UserMixin
 from datetime import datetime
 
-class Comment(db.Model):
+class Comment(db.Model, UserMixin):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key=True)
