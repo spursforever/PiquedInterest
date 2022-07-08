@@ -15,7 +15,7 @@ class Pin(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
     # One user can own many pins
-    users = db.relationship('User', back_populates='pins')
+    user = db.relationship('User', back_populates='pins')
 
     # One user can write many comments
     comments = db.relationship('Comment', back_populates='pins', cascade="all, delete")

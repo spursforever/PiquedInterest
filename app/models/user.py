@@ -25,7 +25,7 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
     
     # Single user can create many pins
-    pins = db.relationship("Pin", back_populates="users")
+    pins = db.relationship("Pin", back_populates="user")
 
     # Single user can post many comments
     comments = db.relationship("Comment", back_populates="users")
