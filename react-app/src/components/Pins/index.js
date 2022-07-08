@@ -2,25 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { displayAllPins } from "../../store/pin"
-import pinsReducer from "../../store/pin";
+
 
 const AllPins = () => {
-    const [allPins, setAllPins] = useState([])
-    const user = useSelector(state => state.session.user)
+
     const showAllPins = useSelector(state=> state.pinsReducer)
     const dispatch = useDispatch()
-    const pinDisplay = useSelector((staus) => staus.pin)
-
+    
     useEffect(() => {
         dispatch(displayAllPins()) 
      
-    }, [dispatch])
-
-    useEffect(() => {
-        if (pinDisplay) {
-            setAllPins(Object.values(pinDisplay))
-        }
-    }, [pinDisplay])
+    }, [dispatch])   
     
     return (
         <>
