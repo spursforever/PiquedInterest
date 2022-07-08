@@ -1,14 +1,16 @@
-"""pin tablee
-Revision ID: ee8561b6dbfa
-Revises: 
-Create Date: 2022-07-07 10:53:54.001335
+"""empty message
+
+Revision ID: 5fbbe2bd95b2
+Revises: ee8561b6dbfa
+Create Date: 2022-07-07 18:21:26.201016
+
 """
 from alembic import op
 import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ee8561b6dbfa'
+revision = '5fbbe2bd95b2'
 down_revision = None
 branch_labels = None
 depends_on = None
