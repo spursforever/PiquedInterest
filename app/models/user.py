@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
     pins = db.relationship("Pin", back_populates="user")
 
     # Single user can post many comments
-    comments = db.relationship("Comment", back_populates="users")
+    comments = db.relationship("Comment", back_populates="user")
 
     def to_dict(self):
         return {

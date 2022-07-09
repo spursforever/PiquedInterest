@@ -18,7 +18,7 @@ class Pin(db.Model, UserMixin):
     user = db.relationship('User', back_populates='pins')
 
     # One user can write many comments
-    comments = db.relationship('Comment', back_populates='pins', cascade="all, delete")
+    comments = db.relationship('Comment', back_populates='pin', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

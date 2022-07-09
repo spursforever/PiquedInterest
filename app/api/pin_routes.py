@@ -11,8 +11,8 @@ def get_all_pins():
     print('..............', {'pins': [pin.to_dict() for pin in pins]})   
     return {'pins': [pin.to_dict() for pin in pins]}
 
-@pin_routes.route('/<int:id>')
-def get_pin_by_id(id):
+@pin_routes.route('/<int:id>') 
+def get_one_pin(id):
     pin = Pin.query.get(id)
-
+    print("oooooooooooooo", pin.to_dict())
     return {'pin': pin.to_dict()}

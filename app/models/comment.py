@@ -12,10 +12,10 @@ class Comment(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
     # one pin can have many comments
-    pins = db.relationship('Pin', back_populates='comments')
+    pin = db.relationship('Pin', back_populates='comments')
 
     # comments are made by a single user
-    users = db.relationship('User', back_populates='comments')
+    user = db.relationship('User', back_populates='comments')
 
     def to_dict(self):
         return {
