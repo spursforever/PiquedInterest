@@ -1,30 +1,34 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { displayOnePin } from "../../store/pin";
 import { useSelector, useDispatch } from "react-redux";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
-    const pin = useSelector((state) => state.pinsReducer)
-    const {id} = useParams()
+    const {pinId} = useParams()
+    const history= useHistory()
+    const pinDetail = useSelector((state) => state?.pinsReducer[pinId])
     // const sessionUser = useSelector((state) => state.session.user?.id)
-    
+    console.log("::::::::::::::", pinDetail)
+    const homePage = () => {
+        history.push('/')
+    }
     useEffect(() => {
-        dispatch(displayOnePin(id))
-    }, [dispatch, id])
-    
+        dispatch(displayOnePin(pinId))
+    }, [dispatch, pinId])   
     
 
     return (
         <div>
             <div>
-                <img
-            alt={pin.title}
-            src={pin.image_url} />
+                <button onClick={homePage} style={{ cursor: 'pointer' }}>Go Back</button>
+                <img 
+                           
+            src={pinDetail?.img_url} />
             </div>
-            <div>Pin Title: {pin.title}</div>
-            <div>Pin Description: {pin.description}</div>
-            <div>{pin.link}</div>
+            <div>Pin Title: {pinDetail?.title}</div>
+            <div>Pin Description: {pinDetail?.description}</div>
+            <div>{pinDetail?.link}</div>
         </div>
         
     )

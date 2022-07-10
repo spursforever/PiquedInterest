@@ -30,10 +30,26 @@ const CreateNewPin =({onClose}) => {
             image_url,
             link
         }
+        const validationErrors = [];
+        if (!title) {
+            validationErrors.push("Please provide pin's title")
+        }
+        if (!image_url) {
+            validationErrors.push("Please prove an image url")
+        } setErrors(validationErrors)
+        if(!validationErrors.length) {
+            const data = await dispatch(createOnePin(payload))
+            await dispatch(displayAllPins())
+            if (data?.errors) {
+                setErrors(data.errors)
+            } else {
+                await dispatch(displayAllPins())
+                onClose(false)
+            }
+        }
         dispatch(createOnePin(payload))
-        .then((res) => {
-            if (res) history.pushState("/")
-        })
+        
+        
 
     }
     return (

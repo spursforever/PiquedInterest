@@ -9,21 +9,18 @@ const CreatePinModal = () => {
         setShowModal(false);
     };
     return (
-        <>
-        <div>
-            <div>
-                 <button onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }}>Create Pin</button>
-            </div>
-            
+        <>       
+        <button onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }}>Create Pin</button>         
         {showModal && (
         <NewPinModal onClose={() => setShowModal(false)}>
             <CreateNewPin onClose={onCloseModal} />
         </NewPinModal>
         )}
-        </div>
+        
        
         </>
     )
 }
 
 export default CreatePinModal 
+            
