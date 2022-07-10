@@ -36,3 +36,18 @@ export function Modal({ onClose, children }) {
     modalNode
   );
 }
+
+export function NewPinModal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+      <div id="">
+          <div id="" onClick={onClose} />
+          <div id="">
+              {children}
+          </div>
+      </div>,
+      modalNode
+  );
+}

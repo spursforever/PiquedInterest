@@ -1,5 +1,6 @@
 const ALL_PINS = 'pins/ALL_PINS'
 const GET_ONE_PIN = 'pins/GET_ONE_PIN'
+const CREATE_PIN = 'pins/CREATE_PIN'
 
 const allPins = (pins) => {
     return {
@@ -11,6 +12,13 @@ const allPins = (pins) => {
 const singlePin = (pin) => {
     return {
         type: GET_ONE_PIN,
+        pin
+    }
+}
+
+const createPin = (pin) => {
+    return {
+        type: CREATE_PIN,
         pin
     }
 }
@@ -33,6 +41,21 @@ export const displayOnePin = (id) => async (dispatch) => {
         dispatch(singlePin(pin))
         console.log("11111111111111111", pin)
         return pin
+    }   
+}
+
+export const createOnePin = (data) => async (dispatch) => {
+    const response = await fetch(`/api/pins/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    if (response.ok) {
+        const newPin = await response.json()
+        dispatch(createPin(newPin))
+        return newPin
     }
 }
 

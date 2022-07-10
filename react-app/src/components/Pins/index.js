@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { displayAllPins } from "../../store/pin"
-
+import CreatePinModal from "../CreatePin";
 
 const AllPins = () => {
 
@@ -17,6 +17,7 @@ const AllPins = () => {
     return (
         <>
         <h1>All Pins</h1>
+        <CreatePinModal />
         <div>
             {Object.values(showAllPins).map((pin) => (
                   <div>  <Link key={`${pin?.id}`}
