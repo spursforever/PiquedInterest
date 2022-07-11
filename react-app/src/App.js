@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import AllPins from './components/Pins';
+import PinDetailPage from './components/SinglePins';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -40,8 +42,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
           <AllPins />
+        </ProtectedRoute>
+        <Route path='/pins/:pinId' exact={true} >
+          <PinDetailPage />
         </Route>
       </Switch>
     </BrowserRouter>
