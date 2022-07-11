@@ -68,3 +68,9 @@ def edit_a_pin(id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@pin_routes.route('/<int:id>', methods=["DELETE"])
+def delete_pin(id):
+    pin = Pin.query.get(id)
+    db.session.delete(pin)
+    return pin.to_dict()
+
