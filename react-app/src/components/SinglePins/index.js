@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { editOnePin } from "../../store/pin";
 import { useSelector, useDispatch } from "react-redux";
 import UpdatePinModal from "../UpdatePin";
-import { displayOnePin } from "../../store/pin";
+import { displayOnePin, deleteAPin } from "../../store/pin";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
@@ -20,6 +20,10 @@ const PinDetailPage = () => {
     }, [dispatch, pinId])   
     // console.log("_________________", pinDetail.users.id)
     // console.log("-----------------", sessionUser)
+    const removePin = (e) => {
+        dispatch(deleteAPin(pinId))
+        history.push('/')
+    }
 
     return (
         <>
@@ -34,6 +38,8 @@ const PinDetailPage = () => {
             <div>{pinDetail?.link}</div>
             <div>
                 {sessionUser === pinDetail.users.id && <UpdatePinModal />}
+                {sessionUser === pinDetail.users.id && 
+                <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button>}
             </div>
         </div>
         </>        

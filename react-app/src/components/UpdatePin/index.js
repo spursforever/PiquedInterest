@@ -1,5 +1,5 @@
 import {Modal} from "../../context/Modal";
-import UpdatePin from "./updatepin";
+import UpdateOnePin from "./updatepin";
 import React, {useState} from "react";
 
 const UpdatePinModal = () => {
@@ -10,7 +10,7 @@ const UpdatePinModal = () => {
         <button className="" onClick={()=> setShowModal(true)} style={{ cursor: 'pointer' }} >Edit Pin</button>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <UpdatePin onClose={() => setShowModal(false)}/>
+          <UpdateOnePin onClose={() => setShowModal(false)}/>
         </Modal>
         )}
         </>

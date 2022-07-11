@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
-// import { createOnePin, displayAllPins } from "../../store/pin"
+import { editOnePin } from "../../store/pin"
 
-const UpdatePin = ({ onClose }) => {
+
+const UpdateOnePin = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { id } = useParams();
@@ -14,7 +15,7 @@ const UpdatePin = ({ onClose }) => {
     const [img_url, setImageurl] = useState(pin.pin.img_url )
     const [link, setLink] = useState(pin.pin.link )
     const [errors, setErrors] = useState([])
-    console.log("22222222222222222222", pin.pin.id)
+    console.log("22222222222222222222", pin)
 
     useEffect(() => {
         const validationErrors = [];
@@ -44,7 +45,7 @@ const UpdatePin = ({ onClose }) => {
             img_url,
             link
         }
-        const updatedPin = await dispatch(UpdatePin(payload));
+        const updatedPin = await dispatch(editOnePin(payload));
         if (updatedPin) {
             history.push(`/pins/${pin.pin.id}`)
             onClose(false)
@@ -104,4 +105,4 @@ const UpdatePin = ({ onClose }) => {
     )
 }
 
-export default UpdatePin
+export default UpdateOnePin

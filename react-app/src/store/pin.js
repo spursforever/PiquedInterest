@@ -2,6 +2,7 @@ const ALL_PINS = 'pins/ALL_PINS'
 const GET_ONE_PIN = 'pins/GET_ONE_PIN'
 const CREATE_PIN = 'pins/CREATE_PIN'
 const UPDATE_PIN = 'pins/UPDATE_PIN'
+const DELETE_PIN = 'pins/DELETE_PIN'
 
 const allPins = (pins) => {
     return {
@@ -29,6 +30,11 @@ const updatePin = (pin) => {
         type: UPDATE_PIN,
         pin
     }
+}
+
+const deletePin = (pin) => {
+    type: DELETE_PIN,
+    pin
 }
 
 export const displayAllPins = () => async (dispatch) => {
@@ -68,7 +74,7 @@ export const createOnePin = (data) => async (dispatch) => {
 }
 
 export const editOnePin = (pin) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${pin.id}/update`, {
+    const response = await fetch(`/api/pins/${pin}/update`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'},
@@ -78,6 +84,17 @@ export const editOnePin = (pin) => async (dispatch) => {
         const onePin = await response.json();
         dispatch(updatePin(onePin))
         return onePin
+    }
+}
+
+export const deleteAPin = (pin) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin}`, {
+        method: "DELETE",        
+    })
+    if (response.ok) {
+        await dispatch(deletePin(pin))
+        const removePin = await response.json()
+        return removePin
     }
 }
 
@@ -103,6 +120,10 @@ const pinsReducer = (state = {}, action) => {
             newState = {...state}
             newState[action.pin.id] = action.pin
             return newState;
+        case DELETE_PIN:
+            newState = {...state}
+            delete newState[action.pin]
+            return newState
         default:
             return state;
     }
