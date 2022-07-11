@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-@pin_routes.route('')
+@pin_routes.route('/')
 def get_all_pins():
     pins = Pin.query.all()
     # print('..............', {'pins': [pin.to_dict() for pin in pins]})   
@@ -30,18 +30,20 @@ def get_one_pin(id):
     # print("1111111111111111", {'pin': pin.to_dict()})
     return {'pin': pin.to_dict()}
 
-@pin_routes.route('', methods = ["POST"])
+@pin_routes.route('/', methods = ["POST"])
 # @login_required
 def create_a_pin():
     form = CreatePinForm()
+    
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_pin = Pin(
-            title=form.data["Title"],
-            description=form.data["Description"],
-            img_url=form.data["Image Url"],
-            link=form.data["Link"],
-            user_id=form.data["User Id"]
+            title=form.data["title"],
+            description=form.data["description"],
+            img_url=form.data["img_url"],
+            link=form.data["link"],
+            # user_id=form.data["userId"]
+            user_id = current_user.id
         )
         
         print("99999999", new_pin)
@@ -51,19 +53,18 @@ def create_a_pin():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @pin_routes.route('/<int:id>/update', methods=["PUT"])
-@login_required
+# @login_required
 def edit_a_pin(id):
     form = EditPinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    updated_pin = Pin.query.get(id)
     if form.validate_on_submit():
-        updated_pin = Pin.query.get(id)
-        updated_pin.title = form.data['Title']
-        updated_pin.image_url = form.data['Image Url']
-        updated_pin.description = form.data['Description']
-        updated_pin.link = form.data['Link']
+        updated_pin.title = form.data['title'],
+        updated_pin.image_url = form.data['image_url'],
+        updated_pin.description = form.data['description'],
+        updated_pin.link = form.data['link'],
         db.session.add(updated_pin)
         db.session.commit()
-
         return {'pins': updated_pin.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

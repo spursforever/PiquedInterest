@@ -9,17 +9,19 @@ const PinDetailPage = () => {
     const dispatch = useDispatch()
     const {pinId} = useParams()
     const history= useHistory()
-    const pinDetail = useSelector((state) => state?.pinsReducer[pinId])
-    const sessionUser = useSelector((state) => state.session.user?.id)
-    // console.log("::::::::::::::", pinDetail)
+    const tin = useSelector((state) => state.pin )
+    const pinDetail = useSelector((state) => state.pin[pinId])
+    const sessionUser = useSelector((state) => state.session.user.id)
+    console.log("::::::::::::::", tin)
     const homePage = () => {
         history.push('/')
     }
     useEffect(() => {
         dispatch(displayOnePin(pinId))
     }, [dispatch, pinId])   
-    // console.log("_________________", pinDetail.users.id)
-    // console.log("-----------------", sessionUser)
+    console.log("_________________", pinDetail.users)
+    console.log("-----------------", sessionUser)
+
     const removePin = (e) => {
         dispatch(deleteAPin(pinId))
         history.push('/')

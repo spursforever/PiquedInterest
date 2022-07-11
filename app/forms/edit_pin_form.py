@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import User
 
 class EditPinForm(FlaskForm):
-    title = StringField("Title", validators=[DataRequired()])
-    description = TextAreaField("Description", validators=[DataRequired()])
-    img_url = StringField("Image Url", validators=[DataRequired()])
-    link = StringField("Link", validators=[DataRequired()])
+    title = StringField("title", validators=[DataRequired()])
+    description = TextAreaField("description")
+    img_url = StringField("image_url", validators=[DataRequired()])
+    link = StringField("link")

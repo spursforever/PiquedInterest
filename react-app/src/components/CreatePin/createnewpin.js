@@ -9,7 +9,7 @@ const CreateNewPin =({onClose}) => {
     const sessionUser = useSelector(state => state.session.user)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-    const [imageUrl, setImageurl] = useState("")
+    const [img_url, setImageurl] = useState("")
     const [link, setLink] = useState("")
     const [errors, setErrors] = useState([])
     useEffect(() => {
@@ -17,10 +17,10 @@ const CreateNewPin =({onClose}) => {
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
-        if (!imageUrl) {
+        if (!img_url) {
             validationErrors.push("Please prove an image url")
         } setErrors(validationErrors)
-    }, [title, imageUrl])
+    }, [title, img_url])
 
     if (!sessionUser) return <Redirect to="/" />;
 
@@ -29,14 +29,14 @@ const CreateNewPin =({onClose}) => {
         const payload = {
             title, 
             description,
-            imageUrl,
+            img_url,
             link
         }
         const validationErrors = [];
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
-        if (!imageUrl) {
+        if (!img_url) {
             validationErrors.push("Please prove an image url")
         } setErrors(validationErrors)
         if(!validationErrors.length) {
@@ -78,7 +78,7 @@ const CreateNewPin =({onClose}) => {
                 </div>
                 <div>
                 <input
-                    value={imageUrl}
+                    value={img_url}
                     onChange={(e) => setImageurl(e.target.value)}
                     placeholder="Please enter image url"
                     >                        

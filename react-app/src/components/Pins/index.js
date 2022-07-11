@@ -6,7 +6,7 @@ import CreatePinModal from "../CreatePin/createnewpin";
 
 const AllPins = () => {
 
-    const showAllPins = useSelector(state=> state.pinsReducer)
+    const showAllPins = useSelector(state=> state.pin)
     const dispatch = useDispatch()
     
     useEffect(() => {

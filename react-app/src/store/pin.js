@@ -40,7 +40,7 @@ const deletePin = (pin) => {
 }
 
 export const displayAllPins = () => async (dispatch) => {
-    const response = await fetch('/api/pins') 
+    const response = await fetch('/api/pins/') 
         if (response.ok) {
         const pins = await response.json();
         dispatch(allPins(pins))
@@ -61,7 +61,7 @@ export const displayOnePin = (id) => async (dispatch) => {
 }
 
 export const createOnePin = (data) => async (dispatch) => {
-    const response = await fetch('/api/pins', {
+    const response = await fetch('/api/pins/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ export const createOnePin = (data) => async (dispatch) => {
 }
 
 export const editOnePin = (pin) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${pin}/update`, {
+    const response = await fetch(`/api/pins/${pin.id}/update`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'},
@@ -101,10 +101,13 @@ export const deleteAPin = (pin) => async (dispatch) => {
 }
 
 const pinsReducer = (state = {}, action) => {
-    let newState = {};
+    let newState;
     switch (action.type) {
         case ALL_PINS:
             newState = {...state}
+            // action.pins.forEach((pin) => {
+            //     newState[pin.id] = pin
+            // })
             for (let pin of action.pins.pins) {
                 newState[pin.id] = pin
             }        
@@ -124,7 +127,7 @@ const pinsReducer = (state = {}, action) => {
             return newState;
         case DELETE_PIN:
             newState = {...state}
-            delete newState[action.pin]
+            delete newState[action.pin.id]
             return newState
         default:
             return state;
