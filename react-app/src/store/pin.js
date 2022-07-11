@@ -104,7 +104,7 @@ const pinsReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
         case ALL_PINS:
-            newState = {...state, ...action.pins}
+            newState = {...state}
             // action.pins.forEach((pin) => {
             //     newState[pin.id] = pin
             // })
