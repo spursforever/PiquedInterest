@@ -7,5 +7,5 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/<int:pinId>')
 def get_comments(pinId):
-    comments = Comment.queryfilter(Comment.pinId === pinId)    
+    comments = Comment.queryfilter(Comment.pinId == pinId)    
     return {'comments': [comment.to_dict() for comment in comments]}

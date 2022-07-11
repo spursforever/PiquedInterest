@@ -46,7 +46,7 @@ const CreateNewPin =({onClose}) => {
                 setErrors(data.errors)
             } else {
                 await dispatch(displayAllPins())
-                // onClose(false)
+                // onClose()
             }
         }       
     }

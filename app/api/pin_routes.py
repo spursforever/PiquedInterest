@@ -24,15 +24,14 @@ def get_all_pins():
 
 @pin_routes.route('/<int:id>')
 @login_required 
-def get_one_pin(id):
-    print("hi")
+def get_one_pin(id):    
     pin = Pin.query.get(id)
-    print("oooooooooooooo", pin.to_dict())
-    print("1111111111111111", {'pin': pin.to_dict()})
+    # print("oooooooooooooo", pin.to_dict())
+    # print("1111111111111111", {'pin': pin.to_dict()})
     return {'pin': pin.to_dict()}
 
 @pin_routes.route('', methods = ["POST"])
-@login_required
+# @login_required
 def create_a_pin():
     form = CreatePinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -42,7 +41,7 @@ def create_a_pin():
             description=form.data["Description"],
             img_url=form.data["Image Url"],
             link=form.data["Link"],
-            user_id=current_user.id
+            user_id=form.data["User Id"]
         )
         
         print("99999999", new_pin)
@@ -52,6 +51,7 @@ def create_a_pin():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @pin_routes.route('/<int:id>/update', methods=["PUT"])
+@login_required
 def edit_a_pin(id):
     form = EditPinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -72,5 +72,6 @@ def edit_a_pin(id):
 def delete_pin(id):
     pin = Pin.query.get(id)
     db.session.delete(pin)
+    db.session.commit()
     return pin.to_dict()
 

@@ -94,8 +94,8 @@ export const deleteAPin = (pin) => async (dispatch) => {
         method: "DELETE",        
     })
     if (response.ok) {
-        await dispatch(deletePin(pin))
         const removePin = await response.json()
+        await dispatch(deletePin(removePin))
         return removePin
     }
 }

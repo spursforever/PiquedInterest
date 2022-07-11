@@ -9,13 +9,14 @@ const UpdateOnePin = ({ onClose }) => {
     const history = useHistory()
     const { id } = useParams();
     const pin = useSelector((state) => state?.pinsReducer[id])
+    const tin = useSelector((state) => state.pinsReducer)
     const sessionUser = useSelector(state => state.session.user)
     const [title, setTitle] = useState(pin.pin.title)
     const [description, setDescription] = useState(pin.pin.description)
     const [img_url, setImageurl] = useState(pin.pin.img_url )
     const [link, setLink] = useState(pin.pin.link )
     const [errors, setErrors] = useState([])
-    console.log("22222222222222222222", pin)
+    console.log("22222222222222222222", pin.pin)
 
     useEffect(() => {
         const validationErrors = [];

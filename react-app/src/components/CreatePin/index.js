@@ -5,6 +5,9 @@ import CreateNewPin from "./createnewpin";
 
 const CreatePinModal = () => {
     const [showModal, setShowModal] = useState(false);
+    const onCloseModal = () => {
+        setShowModal(false);
+    };
    
     return (
         <>
@@ -14,7 +17,7 @@ const CreatePinModal = () => {
        </div>      
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <CreateNewPin onClose={() => setShowModal(false)} />
+            <CreateNewPin onClose={onCloseModal} />
         </Modal>
         )}
         </div> 
