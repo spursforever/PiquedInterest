@@ -1,8 +1,10 @@
 const ALL_COMMENTS ='comments/ALL_COMMENTS'
 
 const allComments = (comments) => {
-    type: ALL_COMMENTS,
-    comments
+    return {
+        type: ALL_COMMENTS,
+        comments
+    }
 }
 
 export const getAllComments = (pinId) => async (dispatch) => {

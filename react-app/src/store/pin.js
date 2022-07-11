@@ -33,8 +33,10 @@ const updatePin = (pin) => {
 }
 
 const deletePin = (pin) => {
-    type: DELETE_PIN,
-    pin
+    return {
+        type: DELETE_PIN,
+        pin
+    }
 }
 
 export const displayAllPins = () => async (dispatch) => {
