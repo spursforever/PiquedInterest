@@ -1,6 +1,7 @@
 const ALL_PINS = 'pins/ALL_PINS'
 const GET_ONE_PIN = 'pins/GET_ONE_PIN'
 const CREATE_PIN = 'pins/CREATE_PIN'
+const UPDATE_PIN = 'pins/UPDATE_PIN'
 
 const allPins = (pins) => {
     return {
@@ -23,6 +24,13 @@ const createPin = (pin) => {
     }
 }
 
+const updatePin = (pin) => {
+    return {
+        type: UPDATE_PIN,
+        pin
+    }
+}
+
 export const displayAllPins = () => async (dispatch) => {
     const response = await fetch('/api/pins') 
         if (response.ok) {
@@ -35,18 +43,17 @@ export const displayAllPins = () => async (dispatch) => {
 
 export const displayOnePin = (id) => async (dispatch) => {
     const response = await fetch(`/api/pins/${id}`)
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!", response)
-    
+    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!", response)
     if (response.ok) {
         const pin = await response.json();
-        console.log("11111111111111111", pin)
+        // console.log("11111111111111111", pin)
         dispatch(singlePin(pin))
         return pin
     }   
 }
 
 export const createOnePin = (data) => async (dispatch) => {
-    const response = await fetch(`/api/pins`, {
+    const response = await fetch('/api/pins', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -57,6 +64,20 @@ export const createOnePin = (data) => async (dispatch) => {
         const newPin = await response.json()
         dispatch(createPin(newPin))
         return newPin
+    }
+}
+
+export const editOnePin = (pin) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin.id}/update`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(pin)
+    })
+    if (response.ok) {
+        const onePin = await response.json();
+        dispatch(updatePin(onePin))
+        return onePin
     }
 }
 
@@ -75,6 +96,10 @@ const pinsReducer = (state = {}, action) => {
             newState[action.pin.id] = action.pin
             return newState;
         case CREATE_PIN:
+            newState = {...state}
+            newState[action.pin.id] = action.pin
+            return newState;
+        case UPDATE_PIN:
             newState = {...state}
             newState[action.pin.id] = action.pin
             return newState;

@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import db, Pin
 from flask_login import login_required, current_user
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.forms.create_pin_form import CreatePinForm
+from app.forms import CreatePinForm, EditPinForm
 
 pin_routes = Blueprint('pins', __name__)
 
@@ -38,14 +38,33 @@ def create_a_pin():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_pin = Pin(
-            title=form.data["title"],
-            description=form.data["description"],
-            image_url=form.data["image_url"],
-            link=form.data["link"],
-            # user_id=current_user.id,
+            title=form.data["Title"],
+            description=form.data["Description"],
+            img_url=form.data["Image Url"],
+            link=form.data["Link"],
+            user_id=current_user.id
         )
+        
+        print("99999999", new_pin)
         db.session.add(new_pin)
         db.session.commit()
-        print("99999999", new_Pin)
         return new_pin.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@pin_routes.route('/<int:id>/update', methods=["PUT"])
+def edit_a_pin(id):
+    form = EditPinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        updated_pin = Pin.query.get(id)
+        updated_pin.title = form.data['Title']
+        updated_pin.image_url = form.data['Image Url']
+        updated_pin.description = form.data['Description']
+        updated_pin.link = form.data['Link']
+        db.session.add(updated_pin)
+        db.session.commit()
+
+        return {'pins': updated_pin.to_dict()}
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
