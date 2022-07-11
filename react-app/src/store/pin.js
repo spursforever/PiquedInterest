@@ -75,12 +75,12 @@ export const createOnePin = (data) => async (dispatch) => {
     }
 }
 
-export const editOnePin = (pin) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${pin.id}/update`, {
+export const editOnePin = (pin, payload) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin}/update`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'},
-        body: JSON.stringify(pin)
+        body: JSON.stringify(payload)
     })
     if (response.ok) {
         const onePin = await response.json();
@@ -104,7 +104,7 @@ const pinsReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
         case ALL_PINS:
-            newState = {...state}
+            newState = {...state, ...action.pins}
             // action.pins.forEach((pin) => {
             //     newState[pin.id] = pin
             // })

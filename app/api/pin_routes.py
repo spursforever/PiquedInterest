@@ -60,7 +60,7 @@ def edit_a_pin(id):
     updated_pin = Pin.query.get(id)
     if form.validate_on_submit():
         updated_pin.title = form.data['title'],
-        updated_pin.image_url = form.data['image_url'],
+        updated_pin.img_url = form.data['img_url'],
         updated_pin.description = form.data['description'],
         updated_pin.link = form.data['link'],
         db.session.add(updated_pin)
