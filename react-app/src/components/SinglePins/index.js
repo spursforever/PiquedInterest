@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import UpdatePinModal from "../UpdatePin";
 import { displayOnePin, deleteAPin } from "../../store/pin";
+import { getAllComments} from "../../store/comment";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const PinDetailPage = () => {
     }
     useEffect(() => {
         dispatch(displayOnePin(pinId))
+        dispatch(getAllComments(pinId))
     }, [dispatch, pinId]) 
    
     const removePin = (e) => {
@@ -22,6 +24,9 @@ const PinDetailPage = () => {
         dispatch(deleteAPin(pinId))
         history.push('/')
     }
+    const comments = useSelector((state) => state.comment[pinId])
+    
+    console.log(">>>>>>", comments)
 
     return (
         <>
@@ -34,6 +39,7 @@ const PinDetailPage = () => {
             <div>Pin Title: {pinDetail?.title}</div>
             <div>Pin Description: {pinDetail?.description}</div>
             <div>{pinDetail?.link}</div>
+            <div>Comments: {comments.content}</div>
             <div>
                 {sessionUser === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
                 {sessionUser === pinDetail?.users?.id && 

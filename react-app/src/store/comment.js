@@ -1,34 +1,62 @@
-const ALL_COMMENTS ='comments/ALL_COMMENTS'
+const GET ='comments/GET'
+const POST = 'comments/POST'
 
 const allComments = (comments) => {
     return {
-        type: ALL_COMMENTS,
+        type: GET,
         comments
     }
 }
 
-export const getAllComments = (pinId) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${pinId}`);
+const postComment = (comment) => {
+    return {
+        type: POST,
+        comment
+    }
+}
+
+export const getAllComments = (id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${id}`);
     if (response.ok) {
         const comment = await response.json();
         dispatch(allComments(comment))
         return comment
     }
 }
+
+export const postNewComment = (data) => async (dispatch) => {
+    const response = await fetch('/api/comments/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    if (response.ok) {
+        const newComment = await response.json()
+        dispatch(postComment(newComment))
+        return newComment
+}
+}
+
 const commentReducer = (state ={}, action) => {
+    let newState;
     switch (action.type) {
-        case ALL_COMMENTS: {
+        case GET: {
             const newState = {}
-            action.comments.forEach(comment => {
+            action.comments.comments.forEach((comment) => {
                 newState[comment.id] = comment
             })
-            return {
-                ...newState, ...state
+            return newState
             }       
+        
+        case POST: {
+            return { [action.comment.id]: action.comment, ...state };
         } 
         default:
                 return state
     }
 }
+
 
 export default commentReducer
