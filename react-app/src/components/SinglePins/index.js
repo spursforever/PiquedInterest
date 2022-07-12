@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import UpdatePinModal from "../UpdatePin";
 import { displayOnePin, deleteAPin } from "../../store/pin";
 import { getAllComments} from "../../store/comment";
-// import Show
+import CreateCommentModal from "../CreateComment";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
@@ -34,7 +34,6 @@ const PinDetailPage = () => {
         history.push('/')
     }
     
-
     return (
         <>
         <div>
@@ -52,11 +51,10 @@ const PinDetailPage = () => {
                 {sessionUser.id === pinDetail?.users?.id && 
                 <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button>}
             </div>
+            <CreateCommentModal />
             <div>
                 {commentMapping.map((comment) => (
-                    <div>
-                        
-                        {comment?.content}
+                    <div>{sessionUser?.first_name}{sessionUser?.last_name}: {comment?.content}
                     </div>
                 ))}</div>
 
