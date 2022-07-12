@@ -6,10 +6,9 @@ from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/<int:id>')
-def get_comments(id):
-    pin = Pin.query.get(id)
-    comments = pin.comments
+@comment_routes.route('/')
+def get_comments():
+    comments = Comment.query.all()      
     return {'comments': [comment.to_dict() for comment in comments]}
 
 @comment_routes.route('/')

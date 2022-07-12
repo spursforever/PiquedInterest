@@ -15,8 +15,8 @@ const postComment = (comment) => {
     }
 }
 
-export const getAllComments = (id) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${id}`);
+export const getAllComments = () => async (dispatch) => {
+    const response = await fetch(`/api/comments/`);
     if (response.ok) {
         const comment = await response.json();
         dispatch(allComments(comment))
@@ -43,7 +43,7 @@ const commentReducer = (state ={}, action) => {
     let newState;
     switch (action.type) {
         case GET: {
-            const newState = {}
+            newState = {...state}
             action.comments.comments.forEach((comment) => {
                 newState[comment.id] = comment
             })

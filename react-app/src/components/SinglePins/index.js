@@ -4,19 +4,28 @@ import { useSelector, useDispatch } from "react-redux";
 import UpdatePinModal from "../UpdatePin";
 import { displayOnePin, deleteAPin } from "../../store/pin";
 import { getAllComments} from "../../store/comment";
+// import Show
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
     const {pinId} = useParams()
+    
     const history= useHistory()   
     const pinDetail = useSelector((state) => state.pin[pinId])
-    const sessionUser = useSelector((state) => state.session.user.id)    
+    const sessionUser = useSelector((state) => state.session.user)    
+    const comments = useSelector((state) => state?.comment)
+    const commentDetail = Object.values(comments)
+    console.log("pinId: ", pinId)
+   console.log(">>>>>>>>>>>", comments)
+   console.log("comment detail:", commentDetail)
+    const commentMapping = commentDetail.filter((comment) => comment?.pin_id === parseInt(pinId))
+    console.log("..........", commentMapping)
     const homePage = () => {
         history.push('/')
     }
     useEffect(() => {
         dispatch(displayOnePin(pinId))
-        dispatch(getAllComments(pinId))
+        dispatch(getAllComments())
     }, [dispatch, pinId]) 
    
     const removePin = (e) => {
@@ -24,9 +33,7 @@ const PinDetailPage = () => {
         dispatch(deleteAPin(pinId))
         history.push('/')
     }
-    const comments = useSelector((state) => state.comment[pinId])
     
-    console.log(">>>>>>", comments)
 
     return (
         <>
@@ -39,12 +46,20 @@ const PinDetailPage = () => {
             <div>Pin Title: {pinDetail?.title}</div>
             <div>Pin Description: {pinDetail?.description}</div>
             <div>{pinDetail?.link}</div>
-            <div>Comments: {comments.content}</div>
+            
             <div>
-                {sessionUser === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
-                {sessionUser === pinDetail?.users?.id && 
+                {sessionUser.id === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
+                {sessionUser.id === pinDetail?.users?.id && 
                 <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button>}
             </div>
+            <div>
+                {commentMapping.map((comment) => (
+                    <div>
+                        
+                        {comment?.content}
+                    </div>
+                ))}</div>
+
         </div>
         </>        
     )
