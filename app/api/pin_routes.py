@@ -70,8 +70,9 @@ def edit_a_pin(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @pin_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 def delete_pin(id):
-    pin = Pin.query.get(id)
+    pin = Pin.query.get(id)    
     db.session.delete(pin)
     db.session.commit()
     return pin.to_dict()

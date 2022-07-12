@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
-import { editOnePin } from "../../store/pin"
+import { editOnePin, displayOnePin } from "../../store/pin"
 
 
 const UpdateOnePin = ({ onClose, pinId }) => {
@@ -17,6 +17,8 @@ const UpdateOnePin = ({ onClose, pinId }) => {
     const [link, setLink] = useState(pin.pin?.link )
     const [errors, setErrors] = useState([])
     console.log("22222222222222222222", updatedPinId)
+    // const newPin = Object.values(pin.pin)
+    // console.log("lllllll", newPin.id)
     
     useEffect(() => {
         const validationErrors = [];
@@ -48,6 +50,7 @@ const UpdateOnePin = ({ onClose, pinId }) => {
         }
         const updatedPin = await dispatch(editOnePin(updatedPinId, payload));
         if (updatedPin) {
+            dispatch(displayOnePin(updatedPinId))
             history.push(`/pins/${updatedPinId}`)
             onClose(false)
         }

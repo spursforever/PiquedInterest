@@ -1,6 +1,5 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { editOnePin } from "../../store/pin";
 import { useSelector, useDispatch } from "react-redux";
 import UpdatePinModal from "../UpdatePin";
 import { displayOnePin, deleteAPin } from "../../store/pin";
@@ -8,20 +7,16 @@ import { displayOnePin, deleteAPin } from "../../store/pin";
 const PinDetailPage = () => {
     const dispatch = useDispatch()
     const {pinId} = useParams()
-    const history= useHistory()
-    // const tin = useSelector((state) => state.pin )
+    const history= useHistory()   
     const pinDetail = useSelector((state) => state.pin[pinId])
-    const sessionUser = useSelector((state) => state.session.user.id)
-    // console.log("::::::::::::::", tin)
+    const sessionUser = useSelector((state) => state.session.user.id)    
     const homePage = () => {
         history.push('/')
     }
     useEffect(() => {
         dispatch(displayOnePin(pinId))
-    }, [dispatch, pinId])   
-    // console.log("_________________", pinId)
-    // console.log("-----------------", sessionUser)
-
+    }, [dispatch, pinId]) 
+   
     const removePin = (e) => {
         e.preventDefault()
         dispatch(deleteAPin(pinId))

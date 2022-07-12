@@ -96,7 +96,7 @@ export const deleteAPin = (pin) => async (dispatch) => {
     if (response.ok) {
         const removePin = await response.json()
         await dispatch(deletePin(removePin))
-        return removePin
+       
     }
 }
 
@@ -104,8 +104,8 @@ const pinsReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {
         case ALL_PINS:
-            newState = {...state}
-            // action.pins.forEach((pin) => {
+            newState = {}
+            // action.pins.pins.forEach((pin) => {
             //     newState[pin.id] = pin
             // })
             for (let pin of action.pins.pins) {
@@ -123,7 +123,7 @@ const pinsReducer = (state = {}, action) => {
             return newState;
         case UPDATE_PIN:
             newState = {...state}
-            newState[action.pin.id] = action.pin
+            newState[action.pin.pin.id] = action.pin
             return newState;
         case DELETE_PIN:
             newState = {...state}
