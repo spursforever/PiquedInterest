@@ -1,5 +1,6 @@
 const GET ='comments/GET'
 const POST = 'comments/POST'
+// const  = 'comments/UPDATE'
 
 const allComments = (comments) => {
     return {
@@ -9,6 +10,13 @@ const allComments = (comments) => {
 }
 
 const postComment = (comment) => {
+    return {
+        type: POST,
+        comment
+    }
+}
+
+const updateComment = (comment) => {
     return {
         type: POST,
         comment
@@ -39,19 +47,34 @@ export const postNewComment = (data) => async (dispatch) => {
 }
 }
 
+export const updateAComment = (commentId, payload) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${commentId}/update`, {
+        method:'PUT',
+        headers: {
+            'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const oneComment = await response.json();
+        dispatch(updateComment(oneComment))
+        return oneComment
+    }
+}
+
 const commentReducer = (state ={}, action) => {
     let newState;
     switch (action.type) {
-        case GET: {
+        case GET: 
             newState = {...state}
             action.comments.comments.forEach((comment) => {
                 newState[comment.id] = comment
             })
-            return newState
-            }       
+            return newState                  
         
         case POST: {
-            return { [action.comment.id]: action.comment, ...state };
+            newState = {...state}
+            newState[action.comment.pin.id] = action.comment
+            return newState;
         } 
         default:
                 return state

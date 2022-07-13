@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { postNewComment } from "../../store/comment";
+import { updateAComment} from "../../store/comment";
 
-const CreateCommentForm = ({ onClose }) => {
+const EditCommentForm = ({ onClose, comments }) => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
@@ -23,12 +23,13 @@ const CreateCommentForm = ({ onClose }) => {
     const commentSubmit = async (e) => {
         e.preventDefault();
         const payload = {
+            id: comments?.id,
             content,
             user_id: sessionUser.id,
             pin_id: id
         }
-        const newComment = await dispatch(postNewComment(payload))
-        if (newComment) {
+        const editedComment = await dispatch(updateAComment(payload))
+        if (editedComment) {
             history.push(`/api/pins/${id}`)
             onClose(false);
         }
@@ -37,7 +38,7 @@ const CreateCommentForm = ({ onClose }) => {
     return (
         <div>
             <form onSubmit={commentSubmit}>
-                <h2>Post Comment</h2>
+                <h2>Edit Comment</h2>
                 <ul>{errors.map((error) => (
                     <li className="" key={error}>
                         {error}
@@ -55,7 +56,7 @@ const CreateCommentForm = ({ onClose }) => {
                     <button
                         type="submit"
                         disabled={errors.length > 0}
-                    >Submit</button>
+                    >Save</button>
                 </div>
                 <div>
                     <button
@@ -68,4 +69,4 @@ const CreateCommentForm = ({ onClose }) => {
     )
 }
 
-export default CreateCommentForm;
+export default EditCommentForm;
