@@ -40,8 +40,8 @@ const deletePin = (pin) => {
 }
 
 export const displayAllPins = () => async (dispatch) => {
-    const response = await fetch('/api/pins/') 
-        if (response.ok) {
+    const response = await fetch('/api/pins/')
+    if (response.ok) {
         const pins = await response.json();
         dispatch(allPins(pins))
         // console.log()
@@ -57,7 +57,7 @@ export const displayOnePin = (id) => async (dispatch) => {
         // console.log("11111111111111111", pin)
         dispatch(singlePin(pin))
         return pin
-    }   
+    }
 }
 
 export const createOnePin = (data) => async (dispatch) => {
@@ -79,7 +79,8 @@ export const editOnePin = (pin, payload) => async (dispatch) => {
     const response = await fetch(`/api/pins/${pin}/update`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'},
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(payload)
     })
     if (response.ok) {
@@ -91,12 +92,12 @@ export const editOnePin = (pin, payload) => async (dispatch) => {
 
 export const deleteAPin = (pin) => async (dispatch) => {
     const response = await fetch(`/api/pins/${pin}`, {
-        method: "DELETE",        
+        method: "DELETE",
     })
     if (response.ok) {
         const removePin = await response.json()
         await dispatch(deletePin(removePin))
-       
+
     }
 }
 
@@ -105,28 +106,27 @@ const pinsReducer = (state = {}, action) => {
     switch (action.type) {
         case ALL_PINS:
             newState = {}
-            // action.pins.pins.forEach((pin) => {
-            //     newState[pin.id] = pin
-            // })
-            for (let pin of action.pins.pins) {
+            action.pins.pins.forEach((pin) => {
                 newState[pin.id] = pin
-            }        
-          // console.log("testttttttttttt", newState)
-            return newState;
+            })
+
+            return { ...newState };
         case GET_ONE_PIN:
-            newState = {...state}
-            newState[action.pin.id] = action.pin
-            return newState;
+            newState = {}
+            newState[action.pin.pin.id] = action.pin.pin
+
+            console.log("555555555", action.pin.pin.id)
+            return { ...newState };
         case CREATE_PIN:
-            newState = {...state}
+            newState = { ...state }
             newState[action.pin.id] = action.pin
             return newState;
         case UPDATE_PIN:
-            newState = {...state}
+            newState = { ...state }
             newState[action.pin.id] = action.pin
             return newState;
         case DELETE_PIN:
-            newState = {...state}
+            newState = { ...state }
             delete newState[action.pin.id]
             return newState
         default:

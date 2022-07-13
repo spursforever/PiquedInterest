@@ -4,17 +4,17 @@ import React, { useEffect, useState } from "react"
 import { editOnePin, displayOnePin } from "../../store/pin"
 
 
-const UpdateOnePin = ({ onClose, pinId }) => {
+const UpdateOnePin = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { id } = useParams();
-    const pin = useSelector((state) => state?.pin[id])
-    const updatedPinId = useSelector((state) => state.pin[pinId].pin?.id)
-    const sessionUser = useSelector(state => state.session.user)
-    const [title, setTitle] = useState(pin.pin?.title)
-    const [description, setDescription] = useState(pin.pin?.description)
-    const [img_url, setImageurl] = useState(pin.pin?.img_url )
-    const [link, setLink] = useState(pin.pin?.link )
+    const { pinId } = useParams();
+    const pin = useSelector((state) => state?.pin[pinId])
+    const updatedPinId = useSelector((state) => state?.pin[pinId].pin?.id)
+    const sessionUser = useSelector(state => state?.session.user)
+    const [title, setTitle] = useState(pin?.pin?.title)
+    const [description, setDescription] = useState(pin?.pin?.description)
+    const [img_url, setImageurl] = useState(pin?.pin?.img_url )
+    const [link, setLink] = useState(pin?.pin?.link )
     const [errors, setErrors] = useState([])
     console.log("22222222222222222222", updatedPinId)
     // const newPin = Object.values(pin.pin)

@@ -5,7 +5,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { postNewComment } from "../../store/comment";
 
 const CreateCommentForm = ({ onClose }) => {
-    const { id } = useParams()
+    const { pinId } = useParams()
+    console.log("id:", pinId)
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector((state) => state.session.user)
@@ -25,11 +26,11 @@ const CreateCommentForm = ({ onClose }) => {
         const payload = {
             content,
             user_id: sessionUser.id,
-            pin_id: id
+            pin_id: pinId
         }
         const newComment = await dispatch(postNewComment(payload))
         if (newComment) {
-            history.push(`/api/pins/${id}`)
+            history.push(`/api/pins/${pinId}`)
             onClose(false);
         }
     }

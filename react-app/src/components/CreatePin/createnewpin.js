@@ -12,15 +12,15 @@ const CreateNewPin = ({ onClose }) => {
     const [img_url, setImageurl] = useState("")
     const [link, setLink] = useState("")
     const [errors, setErrors] = useState([])
-    useEffect(() => {
-        const validationErrors = [];
-        if (!title) {
-            validationErrors.push("Please provide pin's title")
-        }
-        if (!img_url) {
-            validationErrors.push("Please prove an image url")
-        } setErrors(validationErrors)
-    }, [title, img_url])
+    // useEffect(() => {
+    //     const validationErrors = [];
+    //     if (!title) {
+    //         validationErrors.push("Please provide pin's title")
+    //     }
+    //     if (!img_url) {
+    //         validationErrors.push("Please prove an image url")
+    //     } setErrors(validationErrors)
+    // }, [title, img_url])
 
     if (!sessionUser) return <Redirect to="/" />;
 

@@ -19,11 +19,11 @@ const PinDetailPage = () => {
     const comments = useSelector((state) => state?.comment)
     const commentDetail = Object.values(comments)
     const userComment = useSelector((state) => state?.comment)
-    console.log(justPin)
-    console.log(">>>>>>>>>>>", comments)
-    console.log("comment detail:", commentDetail)
+    // console.log(justPin)
+    console.log(">>>>>>>>>>>", pinDetail)
+    // console.log("comment detail:", commentDetail)
     const commentMapping = commentDetail.filter((comment) => comment?.pin_id === parseInt(pinId))
-    console.log("..........", commentMapping?.user_id)
+    // console.log("..........", commentMapping?.user_id)
     const homePage = () => {
         history.push('/')
     }
