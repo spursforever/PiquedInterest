@@ -1,6 +1,6 @@
 const GET ='comments/GET'
 const POST = 'comments/POST'
-// const  = 'comments/UPDATE'
+const DELETE = 'comments/DELETE'
 
 const allComments = (comments) => {
     return {
@@ -23,6 +23,13 @@ const updateComment = (comment) => {
     }
 }
 
+const deleteComment = (comment) => {
+    return {
+        type: DELETE,
+        comment
+    }
+}
+
 export const getAllComments = () => async (dispatch) => {
     const response = await fetch(`/api/comments/`);
     if (response.ok) {
@@ -32,13 +39,13 @@ export const getAllComments = () => async (dispatch) => {
     }
 }
 
-export const postNewComment = (data) => async (dispatch) => {
-    const response = await fetch('/api/comments/', {
+export const postNewComment = (payload, id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
     })
     if (response.ok) {
         const newComment = await response.json()
@@ -61,6 +68,17 @@ export const updateAComment = (commentId, payload) => async (dispatch) => {
     }
 }
 
+export const deleteAComment = (commentId) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE",        
+    })
+    if (response.ok) {
+        const remove = await response.json()
+        await dispatch(deleteComment(remove))
+       
+    }
+}
+
 const commentReducer = (state ={}, action) => {
     let newState;
     switch (action.type) {
@@ -71,11 +89,15 @@ const commentReducer = (state ={}, action) => {
             })
             return newState                  
         
-        case POST: {
+        case POST: 
             newState = {...state}
             newState[action.comment.pin.id] = action.comment
             return newState;
-        } 
+        
+        case DELETE:
+            newState = {...state}
+            delete newState[action.comment.id]
+            return newState
         default:
                 return state
     }

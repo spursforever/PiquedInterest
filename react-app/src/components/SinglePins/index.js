@@ -6,22 +6,24 @@ import { displayOnePin, deleteAPin } from "../../store/pin";
 import { getAllComments } from "../../store/comment";
 import CreateCommentModal from "../CreateComment";
 import EditCommentModal from "../EditComment";
+import { deleteAComment } from "../../store/comment";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
     const { pinId } = useParams()
 
     const history = useHistory()
+    const justPin = useSelector((state) => state.pin.comment)
     const pinDetail = useSelector((state) => state.pin[pinId])
     const sessionUser = useSelector((state) => state.session.user)
     const comments = useSelector((state) => state?.comment)
     const commentDetail = Object.values(comments)
     const userComment = useSelector((state) => state?.comment)
-    console.log(userComment)
+    console.log(justPin)
     console.log(">>>>>>>>>>>", comments)
     console.log("comment detail:", commentDetail)
     const commentMapping = commentDetail.filter((comment) => comment?.pin_id === parseInt(pinId))
-    console.log("..........", commentMapping)
+    console.log("..........", commentMapping?.user_id)
     const homePage = () => {
         history.push('/')
     }
@@ -35,7 +37,7 @@ const PinDetailPage = () => {
         dispatch(deleteAPin(pinId))
         history.push('/')
     }
-
+    
     return (
         <>
             <div>
@@ -53,8 +55,10 @@ const PinDetailPage = () => {
                     {sessionUser.id === pinDetail?.users?.id &&
                         <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button>}
                 </div>
+                <h2>Comments</h2>
                 <CreateCommentModal />
-                <EditCommentModal comments={comments}/>
+                  <EditCommentModal comments={comments}/>
+                  <button>Delete Comment</button>
                 <div>
                     {commentMapping.map((comment) => (
                         <div>{sessionUser?.first_name}{sessionUser?.last_name}: {comment?.content}

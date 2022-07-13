@@ -11,21 +11,21 @@ def get_comments():
     comments = Comment.query.all()      
     return {'comments': [comment.to_dict() for comment in comments]}
 
-@comment_routes.route('/', methods = ["POST"])
-def post_comments():
+@comment_routes.route('/<int:id>', methods = ["POST"])
+@login_required
+def post_comments(id):
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        new_comment = Comment(
+        comment = Comment(
             content = form.data['content'],
-            pin_id = form.data['pin_id'],
-            user_id = form.data['user_id']
+            pin_id = id,
+            user_id = current_user.id
         )
-        db.session.add(new_comment)
+        db.session.add(comment)
         db.session.commit()
-        return new_comment.to_dict()
+        return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 @comment_routes.route('/<int:id>/update', methods = ["PUT"])
 def edit_comment(id):
     form = EditCommentForm()
@@ -39,3 +39,12 @@ def edit_comment(id):
         db.session.commit()
         return {'comments': updated_comment.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@comment_routes.route('/<int:id>', methods=["DELETE"])
+# @login_required
+def delete_comment(id):
+    comment = Comment.query.get(id)    
+    db.session.delete(comment)
+    db.session.commit()
+    return comment.to_dict()
+
