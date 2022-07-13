@@ -11,21 +11,22 @@ def get_comments():
     comments = Comment.query.all()      
     return {'comments': [comment.to_dict() for comment in comments]}
 
-@comment_routes.route('/<int:id>', methods = ["POST"])
+@comment_routes.route('/', methods = ["POST"])
 @login_required
-def post_comments(id):
+def post_comments():
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment(
             content = form.data['content'],
-            pin_id = id,
-            user_id = current_user.id
+            pin_id = form.data['pin_id'],
+            user_id = form.data['user_id']
         )
         db.session.add(comment)
         db.session.commit()
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 @comment_routes.route('/<int:id>/update', methods = ["PUT"])
 def edit_comment(id):
     form = EditCommentForm()

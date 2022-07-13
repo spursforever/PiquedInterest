@@ -39,8 +39,9 @@ export const getAllComments = () => async (dispatch) => {
     }
 }
 
-export const postNewComment = (payload, id) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${id}`, {
+export const postNewComment = (payload) => async (dispatch) => {
+    console.log("payload:", payload)
+    const response = await fetch('/api/comments/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -83,15 +84,19 @@ const commentReducer = (state ={}, action) => {
     let newState;
     switch (action.type) {
         case GET: 
-            newState = {...state}
+            newState = {}
+            console.log("newState:", newState)
             action.comments.comments.forEach((comment) => {
+                console.log("comment:", comment)
                 newState[comment.id] = comment
             })
-            return newState                  
+            return {...newState}                  
         
         case POST: 
             newState = {...state}
-            newState[action.comment.pin.id] = action.comment
+            console.log("action.comment:", newState[action.comment])
+            newState[action.comment.id] = action.comment
+
             return newState;
         
         case DELETE:
