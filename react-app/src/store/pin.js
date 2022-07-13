@@ -60,7 +60,7 @@ export const displayOnePin = (id) => async (dispatch) => {
     }
 }
 
-export const createOnePin = (data) => async (dispatch) => {
+export const createOnePin = ( data) => async (dispatch) => {
     const response = await fetch('/api/pins/', {
         method: 'POST',
         headers: {
@@ -119,11 +119,12 @@ const pinsReducer = (state = {}, action) => {
             return { ...newState };
         case CREATE_PIN:
             newState = { ...state }
-            newState[action.pin.id] = action.pin
+            console.log("hiiiiiiiii", newState[action.pin])
+            newState[action?.pin?.pin?.id] = action?.pin?.pin
             return newState;
         case UPDATE_PIN:
             newState = { ...state }
-            newState[action.pin.id] = action.pin
+            newState[action.pin.pin.id] = action.pin.pin
             return newState;
         case DELETE_PIN:
             newState = { ...state }

@@ -30,7 +30,7 @@ def get_one_pin(id):
     # print("1111111111111111", {'pin': pin.to_dict()})
     return {'pin': pin.to_dict()}
 
-@pin_routes.route('/<int:id>', methods = ["POST"])
+@pin_routes.route('/', methods = ["POST"])
 # @login_required
 def create_a_pin():
     form = CreatePinForm()
@@ -46,7 +46,7 @@ def create_a_pin():
             user_id = current_user.id
         )
         
-        print("99999999", new_pin)
+        # print("99999999", new_pin)
         db.session.add(new_pin)
         db.session.commit()
         return new_pin.to_dict()

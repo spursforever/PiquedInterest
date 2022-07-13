@@ -3,7 +3,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
 import { createOnePin, displayAllPins } from "../../store/pin"
 
-const CreateNewPin = ({ onClose }) => {
+const CreateNewPinII = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
@@ -89,4 +89,4 @@ const CreateNewPin = ({ onClose }) => {
     )
 }
 
-export default CreateNewPin
+export default CreateNewPinII
