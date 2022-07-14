@@ -53,7 +53,7 @@ const PinDetailPage = () => {
                 <div>{pinDetail?.link}</div>
 
                 <div>
-                    {sessionUser?.id === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
+                    {sessionUser?.id === pinDetail?.users?.id && <UpdatePinModal pinDetail={pinDetail} />}
                     {sessionUser?.id === pinDetail?.users?.id && <DeletePinModal pinDetail={pinDetail} />}
                          {/* <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button> */}
                 </div>

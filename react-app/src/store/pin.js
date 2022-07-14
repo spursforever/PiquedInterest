@@ -126,7 +126,7 @@ const pinsReducer = (state = {}, action) => {
             return newState;
         case UPDATE_PIN:
             newState = { ...state }
-            newState[action.pin.pin.id] = action.pin.pin
+            newState[action?.pin?.id] = action?.pin
             return newState;
         case DELETE_PIN:
             newState = { ...state }

@@ -30,7 +30,7 @@ const CreateCommentForm = ({ onClose }) => {
         }
         const newComment = await dispatch(postNewComment(payload))
         if (newComment) {
-            history.push(`/api/pins/${pinId}`)
+            // history.push(`/api/pins/${pinId}`)
             onClose(false);
         }
     }
