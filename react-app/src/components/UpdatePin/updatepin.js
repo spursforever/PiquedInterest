@@ -41,7 +41,7 @@ const UpdateOnePin = ({ onClose }) => {
     const editPinSubmission = async (e) => {
         e.preventDefault();
         const payload = {
-            pinId: pinId,            
+           pinId: pinId,            
             title,
             description,
             img_url,
@@ -50,7 +50,7 @@ const UpdateOnePin = ({ onClose }) => {
         const updatedPin = await dispatch(editOnePin(pinId, payload));
         if (updatedPin) {
             dispatch(displayOnePin(pinId))
-            history.push(`/pins/${pinId}`)
+            // history.push(`/pins/${pinId}`)
             onClose(false)
         }
     }  

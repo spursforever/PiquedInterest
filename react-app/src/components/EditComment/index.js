@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Modal } from "../../context/Modal";
 import EditCommentForm from "./editcomment";
 
-const EditCommentModal = ({comments}) => {
+const EditCommentModal = ({comment}) => {
 
     const [showModal, setShowModal] = useState(false)
 
@@ -11,7 +11,7 @@ const EditCommentModal = ({comments}) => {
             <button className="" onClick={() => setShowModal(true)}>Edit Comment</button>
              {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditCommentForm onClose={() => setShowModal(false)} comments={comments} />
+                    <EditCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
                 </Modal>
             )}
         </>

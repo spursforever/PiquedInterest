@@ -55,8 +55,8 @@ export const postNewComment = (payload) => async (dispatch) => {
 }
 }
 
-export const updateAComment = (commentId, payload) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${commentId}/update`, {
+export const updateAComment = ( payload) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${payload.id}/update`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json' },
@@ -87,7 +87,7 @@ const commentReducer = (state ={}, action) => {
             newState = {}
             console.log("newState:", newState)
             action.comments.comments.forEach((comment) => {
-                console.log("comment:", comment)
+                // console.log("comment:", comment)
                 newState[comment.id] = comment
             })
             return {...newState}                  

@@ -51,19 +51,23 @@ const PinDetailPage = () => {
                 <div>{pinDetail?.link}</div>
 
                 <div>
-                    {sessionUser.id === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
-                    {sessionUser.id === pinDetail?.users?.id &&
+                    {sessionUser?.id === pinDetail?.users?.id && <UpdatePinModal pinId={pinId} />}
+                    {sessionUser?.id === pinDetail?.users?.id &&
                         <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button>}
                 </div>
                 <h2>Comments</h2>
                 <CreateCommentModal />
-                  <EditCommentModal comments={comments}/>
-                  <button>Delete Comment</button>
+                 
                 <div>
-                    {commentMapping.map((comment) => (
-                        <div>{sessionUser?.first_name}{sessionUser?.last_name}: {comment?.content}
-                        </div>
-                    ))}</div>
+                    {commentMapping.map(comment => (
+                        <>
+                        <div>{sessionUser?.first_name} {sessionUser?.last_name}: {comment?.content}</div>
+                        <div> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }  </div> 
+                        <button>Delete Comment</button>
+                        </>
+                          
+                        ))}
+                        </div>                                            
 
             </div>
         </>

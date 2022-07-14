@@ -31,14 +31,14 @@ def post_comments():
 def edit_comment(id):
     form = EditCommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    updated_comment = Comment.query.get(id)
     if form.validate_on_submit():
-        updated_comment.content = form.data("content")
-        updated_comment.pin_id = form.data("pin_id")
-        updated_comment.user_id = form.data("user_id")
-        db.session.add(updated_comment)
+        comment = Comment.query.get(id)
+        comment.content = form.data("content")
+        comment.pin_id = form.data("pin_id")
+        comment.user_id = form.data("user_id")
+        # db.session.add(comment)
         db.session.commit()
-        return {'comments': updated_comment.to_dict()}
+        return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>', methods=["DELETE"])
