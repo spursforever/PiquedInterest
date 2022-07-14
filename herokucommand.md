@@ -1,0 +1,1 @@
+heroku run -a piquedinterest flask seed all
