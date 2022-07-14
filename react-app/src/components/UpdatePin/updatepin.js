@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import { editOnePin, displayOnePin } from "../../store/pin"
 
 
-const UpdateOnePin = ({ onClose }) => {
+const UpdateOnePin = ({ pinDetail, onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { pinId } = useParams();
@@ -18,7 +18,7 @@ const UpdateOnePin = ({ onClose }) => {
     // console.log("22222222222222222222",pinId)
     // const newPin = Object.values(pin.pin)
     // console.log("lllllll", newPin.id)
-    
+    console.log(";;;;;;;;;;", pinDetail.id)
     useEffect(() => {
         const validationErrors = [];
         if (!title) {
@@ -41,16 +41,16 @@ const UpdateOnePin = ({ onClose }) => {
     const editPinSubmission = async (e) => {
         e.preventDefault();
         const payload = {
-            pinId: pinId,            
+           pinId:pinDetail.id,            
             title,
             description,
             img_url,
             link
         }
-        const updatedPin = await dispatch(editOnePin(pinId, payload));
+        const updatedPin = await dispatch(editOnePin( payload));
         if (updatedPin) {
-            dispatch(displayOnePin(pinId))
-            history.push(`/pins/${pinId}`)
+            dispatch(displayOnePin(pinDetail.id))
+            // history.push(`/pins/${pinId}`)
             onClose(false)
         }
     }  

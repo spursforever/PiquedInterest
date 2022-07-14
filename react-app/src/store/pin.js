@@ -76,6 +76,7 @@ export const createOnePin = ( data) => async (dispatch) => {
 }
 
 export const editOnePin = ( payload) => async (dispatch) => {
+    console.log("payload.pinId:", payload.pinId)
     const response = await fetch(`/api/pins/${payload.pinId}/update`, {
         method: 'PUT',
         headers: {
@@ -125,7 +126,7 @@ const pinsReducer = (state = {}, action) => {
             return newState;
         case UPDATE_PIN:
             newState = { ...state }
-            newState[action.pin.pin.id] = action.pin.pin
+            newState[action?.pin?.id] = action?.pin
             return newState;
         case DELETE_PIN:
             newState = { ...state }

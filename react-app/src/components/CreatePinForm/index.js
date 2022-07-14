@@ -83,7 +83,8 @@ const CreateNewPinII = ({ onClose }) => {
                         type="submit"
                         disabled={errors.length > 0}
                     >Submit Pin</button>
-                    <button> Cancel </button> 
+                    {/* <button type="submit"
+                    onClick={onClose}> Cancel </button>  */}
 
                 </form>
             </div>        

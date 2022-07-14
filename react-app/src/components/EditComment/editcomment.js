@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateAComment} from "../../store/comment";
 
-const EditCommentForm = ({ onClose, comments }) => {
-    const { id } = useParams()
+const EditCommentForm = ({ onClose, comment }) => {
+    const { pinId } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector((state) => state.session.user)
 
-    const [content, setComment] = useState('')
+    const [content, setComment] = useState(comment.content)
     const [errors, setErrors] = useState([])
 
     useEffect(() => {
@@ -23,14 +23,14 @@ const EditCommentForm = ({ onClose, comments }) => {
     const commentSubmit = async (e) => {
         e.preventDefault();
         const payload = {
-            id: comments?.id,
+            id: comment?.id,
             content,
             user_id: sessionUser.id,
-            pin_id: id
+            pin_id: pinId
         }
         const editedComment = await dispatch(updateAComment(payload))
         if (editedComment) {
-            history.push(`/api/pins/${id}`)
+            // history.push(`/api/pins/${pinId}`)
             onClose(false);
         }
     }

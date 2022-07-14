@@ -1,21 +1,23 @@
 import React, {useState} from "react";
 import { Modal } from "../../context/Modal";
-import EditCommentForm from "./editcomment";
+import DeleteCommentForm from "./deletecomment";
 
-const EditCommentModal = ({comment}) => {
+
+const DeleteCommentModal = ({comment}) => {
 
     const [showModal, setShowModal] = useState(false)
+    
 
     return (
         <>
-            <button className="" onClick={() => setShowModal(true)}>Edit Comment</button>
+            <button className="" onClick={() => setShowModal(true)}>Delete</button>
              {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
+                    <DeleteCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
                 </Modal>
             )}
         </>
     )
 }
 
-export default EditCommentModal
+export default DeleteCommentModal
