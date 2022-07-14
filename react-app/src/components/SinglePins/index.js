@@ -6,7 +6,7 @@ import { displayOnePin, deleteAPin } from "../../store/pin";
 import { getAllComments } from "../../store/comment";
 import CreateCommentModal from "../CreateComment";
 import EditCommentModal from "../EditComment";
-import { deleteAComment } from "../../store/comment";
+import DeleteCommentModal from "../DeleteComment";
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
@@ -63,7 +63,7 @@ const PinDetailPage = () => {
                         <>
                         <div>{sessionUser?.first_name} {sessionUser?.last_name}: {comment?.content}</div>
                         <div> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }  </div> 
-                        <button>Delete Comment</button>
+                        <div> {sessionUser?.id === comment?.user_id && <DeleteCommentModal  comment={comment} /> }  </div>
                         </>
                           
                         ))}

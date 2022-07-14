@@ -23,8 +23,8 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
+          <NavLink to='/create-pin-form' exact={true} activeClassName='active'>
+            Create Pin Form
           </NavLink>
         </li>
         <li>

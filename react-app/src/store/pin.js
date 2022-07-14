@@ -76,6 +76,7 @@ export const createOnePin = ( data) => async (dispatch) => {
 }
 
 export const editOnePin = ( payload) => async (dispatch) => {
+    console.log("payload.pinId:", payload.pinId)
     const response = await fetch(`/api/pins/${payload.pinId}/update`, {
         method: 'PUT',
         headers: {
