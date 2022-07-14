@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import AllPins from './components/Pins';
 import PinDetailPage from './components/SinglePins';
 import CreateNewPinII from './components/CreatePinForm';
+import {getAllUsers} from './store/user'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getAllUsers())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -46,12 +48,12 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <AllPins />
         </ProtectedRoute>
-        <Route path='/pins/:pinId' exact={true} >
+        <ProtectedRoute path='/pins/:pinId' exact={true} >
           <PinDetailPage />
-        </Route>
-        <Route path="/create-pin-form" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/create-pin-form" exact={true}>
           <CreateNewPinII />      
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

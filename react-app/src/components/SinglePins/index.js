@@ -14,17 +14,19 @@ const PinDetailPage = () => {
     const { pinId } = useParams()
 
     const history = useHistory()
-    const justPin = useSelector((state) => state?.pin)
-    const pinStuff = Object.values(justPin)
+    // console.log("---->>>>>", comment)
+    // const justPin = useSelector((state) => state?.pin)
+    // const pinStuff = Object.values(justPin)
     const pinDetail = useSelector((state) => state.pin[pinId])
     const sessionUser = useSelector((state) => state.session.user)
     const comments = useSelector((state) => state?.comment)
     const commentDetail = Object.values(comments)
-    const userComment = useSelector((state) => state?.comment)
-    // console.log(justPin)
-    console.log(">>>>>>>>>>>", pinDetail)
+    const user = useSelector((state) => state.user)
+    
+    // console.log(pinId)
     // console.log("comment detail:", commentDetail)
     const commentMapping = commentDetail.filter((comment) => comment?.pin_id === parseInt(pinId))
+    // console.log(">>>>>>>>>>>", userComment)
     // console.log("..........", commentMapping?.user_id)
     const homePage = () => {
         history.push('/')
@@ -62,8 +64,9 @@ const PinDetailPage = () => {
                  
                 <div>
                     {commentMapping.map(comment => (
-                        <>
-                        <div>{sessionUser?.first_name} {sessionUser?.last_name}: {comment?.content}</div>
+                        <>                        
+                        <div>{user[comment?.user_id]?.first_name} {user[comment?.user_id]?.last_name}</div>
+                        <div>{comment?.content}</div>
                         <div> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }  </div> 
                         <div> {sessionUser?.id === comment?.user_id && <DeleteCommentModal  comment={comment} /> }  </div>
                         </>
