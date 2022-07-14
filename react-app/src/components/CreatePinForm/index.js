@@ -3,7 +3,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
 import { createOnePin, displayAllPins } from "../../store/pin"
 
-const CreateNewPin = ({ onClose }) => {
+const CreateNewPinII = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
@@ -12,17 +12,16 @@ const CreateNewPin = ({ onClose }) => {
     const [img_url, setImageurl] = useState("")
     const [link, setLink] = useState("")
     const [errors, setErrors] = useState([])
-    // useEffect(() => {
-    //     const validationErrors = [];
-    //     if (!title) {
-    //         validationErrors.push("Please provide pin's title")
-    //     }
-    //     if (!img_url) {
-    //         validationErrors.push("Please prove an image url")
-    //     } setErrors(validationErrors)
-    // }, [title, img_url])
-
-    if (!sessionUser) return <Redirect to="/" />;
+    
+    useEffect(() => {
+        const validationErrors = [];
+        if (!title) {
+            validationErrors.push("Please provide pin's title")
+        }
+        if (!img_url) {
+            validationErrors.push("Please prove an image url")
+        } setErrors(validationErrors)
+    }, [title, img_url])   
 
     const pinSubmit = async (e) => {
         e.preventDefault();
@@ -32,21 +31,10 @@ const CreateNewPin = ({ onClose }) => {
             img_url,
             link
         }
-        const validationErrors = [];
-        if (!title) {
-            validationErrors.push("Please provide pin's title")
-        }
-        if (!img_url) {
-            validationErrors.push("Please prove an image url")
-        } setErrors(validationErrors)
-        if (!validationErrors.length) {
-            const data = await dispatch(createOnePin(payload))
-            await dispatch(displayAllPins())
-            if (data?.errors) {
-                setErrors(data.errors)
-            } else {
-                // onClose(false)
-            }
+        const newPin = await dispatch(createOnePin(payload))
+        if (newPin) {
+            history.push('/')
+            // onClose(false)
         }
     }
 
@@ -95,10 +83,11 @@ const CreateNewPin = ({ onClose }) => {
                         type="submit"
                         disabled={errors.length > 0}
                     >Submit Pin</button>
+                    <button> Cancel </button> 
 
                 </form>
             </div>        
     )
 }
 
-export default CreateNewPin
+export default CreateNewPinII

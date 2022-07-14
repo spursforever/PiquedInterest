@@ -8,15 +8,14 @@ const UpdateOnePin = ({ onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { pinId } = useParams();
-    const pin = useSelector((state) => state?.pin[pinId])
-    const updatedPinId = useSelector((state) => state?.pin[pinId].pin?.id)
-    const sessionUser = useSelector(state => state?.session.user)
-    const [title, setTitle] = useState(pin?.pin?.title)
-    const [description, setDescription] = useState(pin?.pin?.description)
-    const [img_url, setImageurl] = useState(pin?.pin?.img_url )
-    const [link, setLink] = useState(pin?.pin?.link )
+    const pin = useSelector((state) => state?.pin[pinId])    
+    // const sessionUser = useSelector(state => state?.session.user)
+    const [title, setTitle] = useState(pin?.title)
+    const [description, setDescription] = useState(pin?.description)
+    const [img_url, setImageurl] = useState(pin?.img_url )
+    const [link, setLink] = useState(pin?.link )
     const [errors, setErrors] = useState([])
-    console.log("22222222222222222222", updatedPinId)
+    // console.log("22222222222222222222",pinId)
     // const newPin = Object.values(pin.pin)
     // console.log("lllllll", newPin.id)
     
@@ -32,26 +31,26 @@ const UpdateOnePin = ({ onClose }) => {
 
     useEffect(() => {
         if (pin) {
-            setTitle(pin.pin?.title);
-            setDescription(pin.pin?.description);
-            setImageurl(pin.pin?.img_url)
-            setLink(pin.pin?.link)
+            setTitle(pin.title);
+            setDescription(pin.description);
+            setImageurl(pin.img_url)
+            setLink(pin.link)
         }
     }, [pin])
 
     const editPinSubmission = async (e) => {
         e.preventDefault();
         const payload = {
-            pinId: sessionUser?.id,            
+            pinId: pinId,            
             title,
             description,
             img_url,
             link
         }
-        const updatedPin = await dispatch(editOnePin(updatedPinId, payload));
+        const updatedPin = await dispatch(editOnePin(pinId, payload));
         if (updatedPin) {
-            dispatch(displayOnePin(updatedPinId))
-            history.push(`/pins/${updatedPinId}`)
+            dispatch(displayOnePin(pinId))
+            history.push(`/pins/${pinId}`)
             onClose(false)
         }
     }  
