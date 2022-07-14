@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Modal } from "../../context/Modal";
+import {ADeleteCommentModal } from "../../context/Modal";
 import DeleteCommentForm from "./deletecomment";
 
 
@@ -12,9 +12,9 @@ const DeleteCommentModal = ({comment}) => {
         <>
             <button className="" onClick={() => setShowModal(true)}>Delete</button>
              {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <ADeleteCommentModal onClose={() => setShowModal(false)}>
                     <DeleteCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
-                </Modal>
+                </ADeleteCommentModal>
             )}
         </>
     )

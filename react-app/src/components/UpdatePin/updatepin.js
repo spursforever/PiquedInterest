@@ -13,7 +13,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description)
     const [img_url, setImageurl] = useState(pin?.img_url )
-    const [link, setLink] = useState(pin?.link )
+    // const [link, setLink] = useState(pin?.link )
     const [errors, setErrors] = useState([])
     // console.log("22222222222222222222",pinId)
     // const newPin = Object.values(pin.pin)
@@ -34,7 +34,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
             setTitle(pin.title);
             setDescription(pin.description);
             setImageurl(pin.img_url)
-            setLink(pin.link)
+            // setLink(pin.link)
         }
     }, [pin])
 
@@ -45,7 +45,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
             title,
             description,
             img_url,
-            link
+            // link
         }
         const updatedPin = await dispatch(editOnePin( payload));
         if (updatedPin) {
@@ -86,13 +86,13 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
                         >
                         </input>
                     </div>
-                    <div>
+                    {/* <div>
                         <input
                             value={link}
                             onChange={(e) => setLink(e.target.value)}                            
                         >
                         </input>
-                    </div>
+                    </div> */}
                     <button
                         className="submit_event"
                         type="submit"

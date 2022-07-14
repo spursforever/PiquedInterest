@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { displayAllPins } from "../../store/pin"
 
@@ -19,7 +19,7 @@ const AllPins = () => {
         <h1>All Pins</h1>       
         <div>
             {Object.values(showAllPins).map((pin) => (
-                  <div>  <Link key={`${pin?.id}`}
+                  <div>  <NavLink key={`${pin?.id}`}
                 to={`/pins/${pin?.id}`}>
                     <div>
                         <img
@@ -27,8 +27,8 @@ const AllPins = () => {
                         src={pin?.img_url}
                         />                        
                     </div>
+        </NavLink>
                     <div>{pin?.title}</div>
-        </Link>
         </div>
                  
             ))}

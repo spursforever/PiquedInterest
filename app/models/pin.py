@@ -9,7 +9,7 @@ class Pin(db.Model, UserMixin):
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     img_url = db.Column(db.String(2000), nullable=False)
-    link = db.Column(db.String(2000))
+    
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
@@ -25,8 +25,7 @@ class Pin(db.Model, UserMixin):
             'id': self.id,
             'title': self.title,
             'description': self.description,
-            'img_url': self.img_url,
-            'link': self.link,            
+            'img_url': self.img_url,                      
             'users': self.user.to_dict(),
             'comments':[comment.to_dict() for comment in self.comments],
         }

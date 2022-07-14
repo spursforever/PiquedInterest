@@ -40,8 +40,7 @@ def create_a_pin():
         new_pin = Pin(
             title=form.data["title"],
             description=form.data["description"],
-            img_url=form.data["img_url"],
-            link=form.data["link"],
+            img_url=form.data["img_url"],           
             # user_id=form.data["userId"]
             user_id = current_user.id
         )
@@ -61,8 +60,7 @@ def edit_a_pin(id):
     if form.validate_on_submit():
         updated_pin.title = form.data['title'],
         updated_pin.img_url = form.data['img_url'],
-        updated_pin.description = form.data['description'],
-        updated_pin.link = form.data['link'],
+        updated_pin.description = form.data['description'],        
         db.session.add(updated_pin)
         db.session.commit()
         return {'pins': updated_pin.to_dict()}

@@ -52,8 +52,7 @@ const PinDetailPage = () => {
                 </div>
                 <div>Pin Title: {pinDetail?.title}</div>
                 <div>Pin Description: {pinDetail?.description}</div>
-                <div>{pinDetail?.link}</div>
-
+                
                 <div>
                     {sessionUser?.id === pinDetail?.users?.id && <UpdatePinModal pinDetail={pinDetail} />}
                     {sessionUser?.id === pinDetail?.users?.id && <DeletePinModal pinDetail={pinDetail} />}

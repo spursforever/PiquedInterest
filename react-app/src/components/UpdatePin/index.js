@@ -1,4 +1,4 @@
-import {Modal} from "../../context/Modal";
+import {AnEditPinModal} from "../../context/Modal";
 import UpdateOnePin from "./updatepin";
 import React, {useState} from "react";
 
@@ -9,9 +9,9 @@ const UpdatePinModal = ({pinDetail}) => {
         <>
         <button className="" onClick={()=> setShowModal(true)} style={{ cursor: 'pointer' }} >Edit Pin</button>
         {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <AnEditPinModal onClose={() => setShowModal(false)}>
           <UpdateOnePin onClose={() => setShowModal(false)} pinDetail={pinDetail}/>
-        </Modal>
+        </AnEditPinModal>
         )}
         </>
     )

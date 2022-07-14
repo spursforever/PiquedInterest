@@ -7,4 +7,4 @@ class EditPinForm(FlaskForm):
     title = StringField("title", validators=[DataRequired()])
     description = TextAreaField("description")
     img_url = StringField("image_url", validators=[DataRequired()])
-    link = StringField("link")
+    

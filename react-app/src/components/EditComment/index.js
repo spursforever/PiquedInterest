@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Modal } from "../../context/Modal";
+import { AnEditCommentModal } from "../../context/Modal";
 import EditCommentForm from "./editcomment";
 
 const EditCommentModal = ({comment}) => {
@@ -10,9 +10,9 @@ const EditCommentModal = ({comment}) => {
         <>
             <button className="" onClick={() => setShowModal(true)}>Edit Comment</button>
              {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <AnEditCommentModal onClose={() => setShowModal(false)}>
                     <EditCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
-                </Modal>
+                </AnEditCommentModal>
             )}
         </>
     )

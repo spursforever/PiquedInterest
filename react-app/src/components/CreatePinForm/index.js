@@ -3,14 +3,14 @@ import { useHistory, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
 import { createOnePin, displayAllPins } from "../../store/pin"
 
-const CreateNewPinII = ({ onClose }) => {
+const CreateNewPin = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [img_url, setImageurl] = useState("")
-    const [link, setLink] = useState("")
+    // const [link, setLink] = useState("")
     const [errors, setErrors] = useState([])
     
     useEffect(() => {
@@ -29,13 +29,16 @@ const CreateNewPinII = ({ onClose }) => {
             title,
             description,
             img_url,
-            link
+            
         }
         const newPin = await dispatch(createOnePin(payload))
         if (newPin) {
             history.push('/')
             // onClose(false)
         }
+    }
+    const homePage = () => {
+        history.push('/')
     }
 
     return (        
@@ -70,25 +73,25 @@ const CreateNewPinII = ({ onClose }) => {
                         >
                         </input>
                     </div>
-                    <div>
+                    {/* <div>
                         <input
                             value={link}
                             onChange={(e) => setLink(e.target.value)}
                             placeholder="Please enter link related to the pin (optional)"
                         >
                         </input>
-                    </div>
+                    </div> */}
                     <button
                         className="submit_event"
                         type="submit"
                         disabled={errors.length > 0}
                     >Submit Pin</button>
-                    {/* <button type="submit"
-                    onClick={onClose}> Cancel </button>  */}
+                    <button type="submit"
+                    onClick={homePage}> Cancel </button> 
 
                 </form>
             </div>        
     )
 }
 
-export default CreateNewPinII
+export default CreateNewPin
