@@ -53,7 +53,7 @@ def create_a_pin():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @pin_routes.route('/<int:id>/update', methods=["PUT"])
-# @login_required
+@login_required
 def edit_a_pin(id):
     form = EditPinForm()
     form['csrf_token'].data = request.cookies['csrf_token']

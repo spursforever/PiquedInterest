@@ -10,7 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllPins from './components/Pins';
 import PinDetailPage from './components/SinglePins';
-import CreateNewPinII from './components/CreatePinPageTest';
+import CreateNewPinII from './components/CreatePinForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

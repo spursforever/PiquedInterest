@@ -75,8 +75,8 @@ export const createOnePin = ( data) => async (dispatch) => {
     }
 }
 
-export const editOnePin = (pin, payload) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${pin}/update`, {
+export const editOnePin = ( payload) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${payload.pinId}/update`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -97,6 +97,7 @@ export const deleteAPin = (pin) => async (dispatch) => {
     if (response.ok) {
         const removePin = await response.json()
         await dispatch(deletePin(removePin))
+        return removePin
 
     }
 }
