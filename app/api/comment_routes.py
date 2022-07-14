@@ -33,9 +33,10 @@ def edit_comment(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment.query.get(id)
-        comment.content = form.data("content")
-        comment.pin_id = form.data("pin_id")
-        comment.user_id = form.data("user_id")
+        comment.content = form.content.data
+        # comment.pin_id = form.content.data
+        # comment.user_id = form.content.data
+        print("form.data :", form.data)
         # db.session.add(comment)
         db.session.commit()
         return comment.to_dict()
