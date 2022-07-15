@@ -24,7 +24,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
-        if (title.length > 80) {
+        if (title.length > 40) {
             validationErrors.push("You have exceeded title's maximum character limit")
         }
         if (description.length > 160) {

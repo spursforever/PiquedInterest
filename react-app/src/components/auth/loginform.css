@@ -1,0 +1,109 @@
+.login-page-container {
+    height: 618px;
+    height: 484px;
+}
+
+.welcome-word {
+    color: orangered;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center
+}
+
+/* .login-form-design {
+
+} */
+
+.login-form-error-cantainer {
+    text-align:center;
+    color: red;    
+}
+
+.login-form-field-container {
+    margin: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "SFMono-Medium","SF Mono","Segoe UI Mono","Roboto Mono","Ubuntu Mono","Menlo,Consolas",Courier,monospace;
+}
+
+.login-detail-container {
+    margin: 5px 5px;
+    padding-bottom: 10px;
+}
+
+.input-detail {
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 8px 16px;    
+    width: 268px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    line-height: normal;
+
+}
+
+/* .default-label {
+
+} */
+
+.login-button {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgb(230, 0, 35);
+    color: white;
+    width: 30%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+}
+
+/* .login-button:disabled {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    color: gray;
+    background-color: #efefef;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+} */
+
+.demo-button {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background-color:#3370eb;
+    color: white;
+    width: 30%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+    margin-bottom: 10px;
+
+}

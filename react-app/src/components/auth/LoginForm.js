@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import "./loginform.css"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -36,35 +37,42 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
+    <div className='login-page-container'>     
+        <h1 className='welcome-word'>Welcome to PiquedInterest</h1>      
+    <form className='login-form-design' onSubmit={onLogin}>
+      <div className='login-form-error-cantainer'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+      <div className='login-form-field-container'>
+        <div className='login-detail-container'>        
         <input
+          className='input-detail'
           name='email'
           type='text'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
         />
+        <label className="default-label" htmlFor="email"></label>
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+      <div className='login-detail-container'>        
         <input
+          className='input-detail'
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
-        <button type='submit' onClick={demoUser}>Demo User</button>
+         <label className="default-label" htmlFor="password"></label>
+         </div>
+        <button className="login-button" type='submit'>Login</button>
+        <button className="demo-button" type='submit' onClick={demoUser}>Demo User</button>
       </div>
     </form>
+    </div>
   );
 };
 
