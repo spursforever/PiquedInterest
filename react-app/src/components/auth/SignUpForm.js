@@ -18,11 +18,13 @@ const SignUpForm = () => {
     e.preventDefault();
     const validationErrors = []
     if (!first_name)
-      validationErrors.push("Please provide your first name")
+      validationErrors.push("Please enter your first name")
     if (!last_name)
       validationErrors.push("Please enter your last name")
     if (!email)
       validationErrors.push("Please enter your email")
+    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) === null) 
+      validationErrors.push("Please enter a valid email address")
     if (!password)
       validationErrors.push("Please enter password")
     if (!repeatPassword)

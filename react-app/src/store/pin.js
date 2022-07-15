@@ -117,11 +117,11 @@ const pinsReducer = (state = {}, action) => {
             newState = {}
             newState[action.pin.pin.id] = action.pin.pin
 
-            console.log("555555555", action.pin.pin.id)
+            // console.log("555555555", action.pin.pin.id)
             return { ...newState };
         case CREATE_PIN:
             newState = { ...state }
-            console.log("hiiiiiiiii", newState[action.pin])
+            // console.log("hiiiiiiiii", newState[action.pin])
             newState[action?.pin?.pin?.id] = action?.pin?.pin
             return newState;
         case UPDATE_PIN:

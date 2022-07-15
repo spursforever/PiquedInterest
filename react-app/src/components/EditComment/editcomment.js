@@ -17,7 +17,10 @@ const EditCommentForm = ({ onClose, comment }) => {
         const validationErrors = []
         if (!content) {
             validationErrors.push("Please provide a comment")
-        } setErrors(validationErrors)
+        } if (content.length > 260) {
+            validationErrors.push("You have exceeded maximum character limit")
+        }
+        setErrors(validationErrors)
     }, [content])
 
     const commentSubmit = async (e) => {
