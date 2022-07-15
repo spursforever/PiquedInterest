@@ -8,42 +8,37 @@ def seed_users():
         last_name='Demo', 
         email='demo@aa.io', 
         password='password',
-        profile_pic='https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
     )
     Dayton = User(
         first_name='Dayton',
         last_name='Chen',
         email='dayton@google.com',
-        password='password',
-        profile_pic='https://avatars.githubusercontent.com/u/94093737?v=4'
+        password='password',       
     )
     Grant = User(
         first_name='Grant',
         last_name='Walton', 
         email='grant@google.com', 
-        password='password',
-        profile_pic='https://avatars.githubusercontent.com/u/65691441?v=4'
+        password='password',        
     )    
     Huyen = User(
         first_name='Huyen', 
         last_name='Nguyen',
         email='huyen@google.com', 
         password='password',
-        profile_pic='https://avatars.githubusercontent.com/u/92718001?v=4'
+        
     )
     James = User(
         first_name='James',
         last_name='Chen',
         email='james@google.com', 
         password='password',
-        profile_pic='https://avatars.githubusercontent.com/u/73676915?v=4'
     )
     Khoi = User(
         first_name='Khoi', 
         last_name='Duong',
         email='khoi@google.com', 
-        password='password',
-        profile_pic='https://avatars.githubusercontent.com/u/92695890?v=4'
+        password='password',        
     )    
 
     db.session.add(demo)
