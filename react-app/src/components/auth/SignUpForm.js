@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import "./signupform.css"
+import Footer from '../Footer';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -132,6 +133,9 @@ const SignUpForm = () => {
       <button className='signup-button' type='submit'>Sign Up</button>      
     </div>
     </form>
+    <div>
+      <Footer />
+    </div>
     </div>
   );
 };

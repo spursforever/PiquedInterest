@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import "./loginform.css"
+import Footer from '../Footer';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -72,6 +73,9 @@ const LoginForm = () => {
         <button className="demo-button" type='submit' onClick={demoUser}>Demo User</button>
       </div>
     </form>
+    <div>
+      <Footer />
+    </div>
     </div>
   );
 };
