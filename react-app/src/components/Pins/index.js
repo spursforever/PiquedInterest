@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { displayAllPins } from "../../store/pin"
 import './allpins.css'
+import Footer from "../Footer";
 
 const AllPins = () => {
 
@@ -36,7 +37,9 @@ const AllPins = () => {
 ))}
 </div>
            
-
+<div>
+    <Footer />
+</div>
 
         </div>
     )

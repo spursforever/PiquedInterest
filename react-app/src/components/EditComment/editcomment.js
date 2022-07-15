@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateAComment} from "../../store/comment";
+import "./editcomment.css"
 
 const EditCommentForm = ({ onClose, comment }) => {
     const { pinId } = useParams()
@@ -41,14 +42,15 @@ const EditCommentForm = ({ onClose, comment }) => {
     return (
         <div>
             <form onSubmit={commentSubmit}>
-                <h2>Edit Comment</h2>
+                <h2 className="edit-comment-text">Edit Comment</h2>
                 <ul>{errors.map((error) => (
-                    <li className="" key={error}>
+                    <li className="edit-comment-errors" key={error}>
                         {error}
                     </li>))}
                 </ul>
                 <div>
                     <textarea
+                        className="edit-comment-area"
                         value={content}
                         placeholder="Please provide your insight on this pin"
                         onChange={(e) => setComment(e.target.value)}
@@ -57,12 +59,14 @@ const EditCommentForm = ({ onClose, comment }) => {
 
                 <div>
                     <button
+                        className="edit-comment-button-modal"
                         type="submit"
                         disabled={errors.length > 0}
                     >Save</button>
                 </div>
                 <div>
                     <button
+                        className="cancel-edit-comment-button-modal"                        
                         type="submit"
                         onClick={onClose}>Cancel</button>
                 </div>

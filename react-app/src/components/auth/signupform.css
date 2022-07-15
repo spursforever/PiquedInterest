@@ -1,0 +1,70 @@
+.signup-page-container {
+    height: 620px;
+    height: 488px;
+    /* overflow: hidden; */
+    
+}
+
+.signup-welcome {
+    margin-bottom: 0.4em;
+    color: orangered;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center
+}
+
+.signup-page-error-container {
+    text-align:center;
+    color: red;    
+}
+
+.signup-errors {
+    font-weight: 550;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.signup-form-container {
+    margin: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "SFMono-Medium","SF Mono","Segoe UI Mono","Roboto Mono","Ubuntu Mono","Menlo,Consolas",Courier,monospace;
+}
+
+.signup-detail-container {
+    margin: 5px 5px;
+    padding-bottom: 10px;
+}
+
+.signup-form-input {
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 8px 16px;    
+    width: 272px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    line-height: normal;
+    margin-bottom: 1.8em;
+}
+
+.signup-button {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background-color:red;
+    color: white;
+    width: 25%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+    margin-bottom: 0.8em;
+}

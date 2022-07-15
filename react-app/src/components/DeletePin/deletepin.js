@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux";
 import { deleteAPin } from "../../store/pin";
 import { useParams, useHistory } from "react-router-dom";
+import "./deletepin.css"
 
 const DeletePinForm = ({ pinDetail, onClose }) => {
     const dispatch = useDispatch()
@@ -19,11 +20,13 @@ const DeletePinForm = ({ pinDetail, onClose }) => {
 
     return (
         <>
-        <h3>Are you sure you want to delete this pin? This action is irreversible!</h3>
+        <h3 className="regular-message">Are you sure you want to delete this pin? </h3>
+        <h2 className="warning-delete">This action is irreversible!!!</h2>
         <button 
+        className="delete-pin-modal-button"
         type="submit"
         onClick={handleDelete}>Yes</button>
-        <button type="submit" onClick={onClose}>Cancel</button>
+        <button className="cancel-delete-pin-modal-button" type="submit" onClick={onClose}>Cancel</button>
         </>
     )
 }
