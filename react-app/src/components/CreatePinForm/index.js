@@ -18,10 +18,21 @@ const CreateNewPin = () => {
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
+        if (title.length > 80) {
+            validationErrors.push("You have exceeded title's maximum character limit")
+        }
+        if (description.length > 160) {
+            validationErrors.push("You have exceeded description's maximum character limit")
+        }
         if (!img_url) {
             validationErrors.push("Please prove an image url")
-        } setErrors(validationErrors)
-    }, [title, img_url])   
+        } 
+        if (!img_url.match(/\.(jpeg|jpg|gif|png)$/)) {
+            validationErrors.push("Image url must end in a jpeg/jpg/gif/png format")
+        }
+        if(!img_url.startsWith("https://")) validationErrors.push("Image url must start in https:// format") 
+        setErrors(validationErrors)
+    }, [title, description, img_url])   
 
     const pinSubmit = async (e) => {
         e.preventDefault();
@@ -51,25 +62,25 @@ const CreateNewPin = () => {
                         </li>))}
                     </ul>
                     <div>
+                        <label>Pin's Title </label>
                         <input
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Please enter pin's title"
+                            onChange={(e) => setTitle(e.target.value)}                            
                         ></input>
                     </div>
                     <div>
+                    <label>Pin's Description (Optional Field) </label>
                         <input
                             value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Please enter pin's description (optional)"
+                            onChange={(e) => setDescription(e.target.value)}                           
                         >
                         </input>
                     </div>
                     <div>
+                    <label>Pin's Image Url </label>
                         <input
                             value={img_url}
-                            onChange={(e) => setImageurl(e.target.value)}
-                            placeholder="Please enter image url"
+                            onChange={(e) => setImageurl(e.target.value)}                            
                         >
                         </input>
                     </div>

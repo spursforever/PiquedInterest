@@ -18,16 +18,27 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
     // console.log("22222222222222222222",pinId)
     // const newPin = Object.values(pin.pin)
     // console.log("lllllll", newPin.id)
-    console.log(";;;;;;;;;;", pinDetail.id)
+    // console.log(";;;;;;;;;;", pinDetail.id)
     useEffect(() => {
         const validationErrors = [];
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
+        if (title.length > 80) {
+            validationErrors.push("You have exceeded title's maximum character limit")
+        }
+        if (description.length > 160) {
+            validationErrors.push("You have exceeded description's maximum character limit")
+        }
         if (!img_url) {
             validationErrors.push("Please prove an image url")
-        } setErrors(validationErrors)
-    }, [title, img_url])
+        } 
+        if (!img_url.match(/\.(jpeg|jpg|gif|png)$/)) {
+            validationErrors.push("Image url must end in a jpeg/jpg/gif/png format")
+        }
+        if(!img_url.startsWith("https://")) validationErrors.push("Image url must start in https:// format") 
+        setErrors(validationErrors)
+    }, [title, description, img_url])
 
     useEffect(() => {
         if (pin) {
@@ -66,12 +77,14 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
                         </li>))}
                     </ul>
                     <div>
+                    <label>Pin's Title </label>
                         <input
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}                            
                         ></input>
                     </div>
                     <div>
+                    <label>Pin's Description (Optional Field) </label>
                         <input
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}                            
@@ -79,6 +92,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
                         </input>
                     </div>
                     <div>
+                    <label>Pin's Image Url </label>
                         <input
                             value={img_url}
                             type="text"
