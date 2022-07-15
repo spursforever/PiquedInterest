@@ -15,8 +15,8 @@ const DeleteCommentForm = ({comment, onClose }) => {
 
     return (
         <>
-        <h3 className="question-message">Are you sure you want to delete this comment?</h3> 
-        <h2 className="warning-delete-comment">This action is irreversible!!!</h2>
+        <h4 className="question-message">Are you sure you want to delete this comment?</h4> 
+        <h3 className="warning-delete-comment">This action is irreversible!!!</h3>
         <button 
         type="submit"
         className="delete-comment-modal-button"

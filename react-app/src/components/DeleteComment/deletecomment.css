@@ -1,12 +1,14 @@
 .question-message {
     font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:  rgb(0, 0, 255); opacity:0.7;
     margin-top: -0.08em;
     margin-bottom: -0.4em;
 }
 
 .warning-delete-comment {
-    color: red
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .delete-comment-modal-button {

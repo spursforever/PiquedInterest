@@ -1,8 +1,10 @@
 h1 {
-    color: orange
+    color: orange;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
 }
 .main-page-container {
-    margin-top: 100px;
+    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

@@ -11,12 +11,9 @@
     text-align: center
 }
 
-/* .login-form-design {
-
-} */
-
 .log-in-errors {
     font-weight: 550;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .login-form-error-cantainer {
@@ -50,10 +47,6 @@
     margin-bottom: 0.4em;
 
 }
-
-/* .default-label {
-
-} */
 
 .login-button {
     box-sizing: border-box;

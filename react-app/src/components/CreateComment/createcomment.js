@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { postNewComment } from "../../store/comment";
+import './createcomment.css'
 
 const CreateCommentForm = ({ onClose }) => {
     const { pinId } = useParams()
@@ -42,28 +43,31 @@ const CreateCommentForm = ({ onClose }) => {
     return (
         <div>
             <form onSubmit={commentSubmit}>
-                <h2>Post Comment</h2>
+                <h2 className="post-comment-text">Post Comment</h2>
                 <ul>{errors.map((error) => (
-                    <li className="" key={error}>
+                    <li className="create-comment-errors" key={error}>
                         {error}
                     </li>))}
                 </ul>
                 <div>
                     <textarea
+                        className="create-comment-area"
                         value={content}
-                        placeholder="Please provide your insight on this pin"
+                        placeholder="Please provide your thoughts on this pin"
                         onChange={(e) => setComment(e.target.value)}
                     />
                 </div>
 
                 <div>
                     <button
+                        className="create-comment-button-modal"
                         type="submit"
                         disabled={errors.length > 0}
                     >Submit</button>
                 </div>
                 <div>
                     <button
+                        className="cancel-create-comment-button-modal"
                         type="submit"
                         onClick={onClose}>Cancel</button>
                 </div>

@@ -1,17 +1,28 @@
-.regular-message {
-    font-style: italic;
-    color:  rgb(0, 0, 255); opacity:0.7;
-    margin-top: -0.08em;
-    margin-bottom: -0.4em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+.post-comment-text {
+    margin-top: -3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: orangered;
 }
 
-.warning-delete {
-    color: red;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+.create-comment-errors {
+color:red;
+font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-.delete-pin-modal-button {
+.create-comment-area {
+    box-sizing: border-box;
+    padding: 8px 16px;    
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    line-height: normal;
+    margin-bottom: 0.4em;
+}
+
+.create-comment-button-modal {
     box-sizing: border-box;
     height: 40px;
     display: inline-block;
@@ -25,14 +36,14 @@
     text-align: center;
     background-color: rgb(255, 0, 0);opacity:0.7 ;
     color: black;
-    width: 30%;
+    width: 50%;
     -webkit-font-smoothing: antialiased;
     border: none;
     margin-bottom: 0.4em;
-    margin-top: -0.4em;
+    margin-top: 0.4em;
 }
 
-.cancel-delete-pin-modal-button {
+.cancel-create-comment-button-modal {
     box-sizing: border-box;
     height: 40px;
     display: inline-block;
@@ -44,10 +55,9 @@
     margin-top: 10px;
     vertical-align: middle;
     text-align: center;
-    background-color: rgb(0,255,0);opacity:0.7;;
-    color: black;
-    width: 30%;
+    background-color: rgb(0,0, 255); opacity:0.4;
+    color: white;
+    width: 50%;
     -webkit-font-smoothing: antialiased;
     border: none;
-   
 }
