@@ -1,0 +1,98 @@
+.create-pin-page-container {
+    height: 620px;
+    height: 488px;
+    /* overflow: hidden; */
+}
+
+.create-welcome {
+    margin-bottom: 0.4em;
+    color: orangered;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.6em;
+}
+
+.create-pin-page-error-container {
+ text-align:center;
+    color: red; 
+}
+
+.create-pin-errors {
+    font-weight: 550;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.create-pin-form-container {
+    margin: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "SFMono-Medium","SF Mono","Segoe UI Mono","Roboto Mono","Ubuntu Mono","Menlo,Consolas",Courier,monospace;
+}
+
+.create-pin-form-detail-container {
+    margin: 5px 5px;
+    padding-bottom: 10px;
+}
+
+.create-pin-form-input {
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 8px 16px;    
+    width: 268px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    line-height: normal;
+    margin-bottom: 1em;
+}
+
+.create-pin-page-button {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgb(230, 0, 35);
+    color: white;
+    width: 25%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+    margin-bottom: 1em;
+}
+
+.cancel-create-pin-page-button {
+    box-sizing: border-box;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background-color:#3370eb;
+    color: white;
+    width: 25%;
+    -webkit-font-smoothing: antialiased;
+    border: none;
+    
+
+}
+
+.create-pin-label {
+    display: flex;    
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
+}

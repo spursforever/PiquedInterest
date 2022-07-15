@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react"
 import { createOnePin, displayAllPins } from "../../store/pin"
+import "./createpinform.css"
 
 const CreateNewPin = () => {
     const dispatch = useDispatch()
@@ -53,53 +54,52 @@ const CreateNewPin = () => {
     }
 
     return (        
-            <div>
-                <form onSubmit={pinSubmit}>
-                    <h2>Create Your favorite Pin!</h2>
-                    <ul>{errors.map((error) => (
-                        <li className="">
+            <div className="create-pin-page-container">
+                    <h2 className="create-welcome">Create Your favorite Pin!</h2>
+                <form className="create-pin-form" onSubmit={pinSubmit}>
+                    <div className="create-pin-page-error-container">
+                    {errors.map((error) => (
+                        <div className="create-pin-errors">
                             {error}
-                        </li>))}
-                    </ul>
-                    <div>
-                        <label>Pin's Title </label>
+                        </div>))}                        
+                    </div>
+                    <div className="create-pin-form-container">
+                        <div className="create-pin-form-detail-container">
+                        <label className="create-pin-label">Pin's Title </label>
                         <input
+                            className="create-pin-form-input"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}                            
                         ></input>
                     </div>
                     <div>
-                    <label>Pin's Description (Optional Field) </label>
+                    <label className="create-pin-label">Pin's Description (Optional Field) </label>
                         <input
+                        className="create-pin-form-input"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}                           
                         >
                         </input>
                     </div>
                     <div>
-                    <label>Pin's Image Url </label>
+                    <label className="create-pin-label">Pin's Image Url </label>
                         <input
+                        className="create-pin-form-input"
                             value={img_url}
                             onChange={(e) => setImageurl(e.target.value)}                            
                         >
                         </input>
-                    </div>
-                    {/* <div>
-                        <input
-                            value={link}
-                            onChange={(e) => setLink(e.target.value)}
-                            placeholder="Please enter link related to the pin (optional)"
-                        >
-                        </input>
-                    </div> */}
+                    </div>                   
                     <button
-                        className="submit_event"
+                        className="create-pin-page-button"
                         type="submit"
                         disabled={errors.length > 0}
                     >Submit Pin</button>
-                    <button type="submit"
+                    <button 
+                    className="cancel-create-pin-page-button"
+                    type="submit"
                     onClick={homePage}> Cancel </button> 
-
+                    </div>
                 </form>
             </div>        
     )

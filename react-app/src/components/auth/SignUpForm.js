@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import "./signupform.css"
-import Footer from '../Footer';
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -25,7 +25,7 @@ const SignUpForm = () => {
       validationErrors.push("Please enter your last name")
     if (!email)
       validationErrors.push("Please enter your email")
-    if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) ) 
+    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) ) 
       validationErrors.push("Please enter a valid email address")
     if (!password)
       validationErrors.push("Please enter password")
@@ -133,9 +133,7 @@ const SignUpForm = () => {
       <button className='signup-button' type='submit'>Sign Up</button>      
     </div>
     </form>
-    <div>
-      <Footer />
-    </div>
+    
     </div>
   );
 };
