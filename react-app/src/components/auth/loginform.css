@@ -1,9 +1,10 @@
 .login-page-container {
-    height: 618px;
-    height: 484px;
+    height: 620px;
+    height: 488px;
 }
 
 .welcome-word {
+    margin-bottom: 0.4em;
     color: orangered;
     font-size: 36px;
     font-weight: 600;
@@ -13,6 +14,10 @@
 /* .login-form-design {
 
 } */
+
+.log-in-errors {
+    font-weight: 550;
+}
 
 .login-form-error-cantainer {
     text-align:center;
@@ -42,6 +47,7 @@
     border-radius: 15px;
     border: 1px solid lightgray;
     line-height: normal;
+    margin-bottom: 0.4em;
 
 }
 
@@ -63,9 +69,10 @@
     text-align: center;
     background-color: rgb(230, 0, 35);
     color: white;
-    width: 30%;
+    width: 25%;
     -webkit-font-smoothing: antialiased;
     border: none;
+    margin-bottom: 0.8em;
 }
 
 /* .login-button:disabled {
@@ -101,7 +108,7 @@
     text-align: center;
     background-color:#3370eb;
     color: white;
-    width: 30%;
+    width: 25%;
     -webkit-font-smoothing: antialiased;
     border: none;
     margin-bottom: 10px;

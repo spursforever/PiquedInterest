@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import "./signupform.css"
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -23,7 +24,7 @@ const SignUpForm = () => {
       validationErrors.push("Please enter your last name")
     if (!email)
       validationErrors.push("Please enter your email")
-    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) === null) 
+    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) ) 
       validationErrors.push("Please enter a valid email address")
     if (!password)
       validationErrors.push("Please enter password")
@@ -68,65 +69,70 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
+    <div className='signup-page-container'>
+      <h2 className='signup-welcome'>Sign up to enjoy PiquedInterest!</h2>
+    <form className='signup-form' onSubmit={onSignUp}>
+      <div className='signup-page-error-container'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='signup-errors'>{error}</div>
         ))}
       </div>
-      <div>
-        <label>First Name: </label>
+      <div className="signup-form-container">
+      <div className="signup-detail-container">        
         <input
+         className='signup-form-input'
           type='text'
           name='username'
           onChange={updateFirstName}
           value={first_name}
-          placeholder="Your first name"
+          placeholder="Please enter your first name"          
         ></input>
       </div>
-      <div>
-        <label>Last Name: </label>
+      <div>        
         <input
+         className='signup-form-input'
           type='text'
           name='username'
           onChange={updateLastName}
           value={last_name}
-          placeholder="Your last name"
+          placeholder="Please enter your last name"          
         ></input>
       </div>
-      <div>
-        <label>Email: </label>
+      <div>        
         <input
+         className='signup-form-input'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
-          placeholder="Please enter email address"
+          placeholder="Please enter your email"
+          
         ></input>
       </div>
-      <div>
-        <label>Password: </label>
+      <div>        
         <input
+         className='signup-form-input'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
-          placeholder="Please enter password"
+          placeholder="Please create your password"          
         ></input>
       </div>
-      <div>
-        <label>Repeat Password: </label>
+      <div>        
         <input
+          className='signup-form-input'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          placeholder="Please retype the password again"
-          // required={true}
+          placeholder="Please retype the same password again"                   
         ></input>
       </div>      
-      <button type='submit'>Sign Up</button>      
+      <button className='signup-button' type='submit'>Sign Up</button>      
+    </div>
     </form>
+    </div>
   );
 };
 

@@ -38,11 +38,11 @@ const LoginForm = () => {
 
   return (
     <div className='login-page-container'>     
-        <h1 className='welcome-word'>Welcome to PiquedInterest</h1>      
+        <h2 className='welcome-word'>Welcome to PiquedInterest!</h2>      
     <form className='login-form-design' onSubmit={onLogin}>
       <div className='login-form-error-cantainer'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className="log-in-errors">{error}</div>
         ))}
       </div>
       <div className='login-form-field-container'>
