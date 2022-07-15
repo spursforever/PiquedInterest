@@ -12,6 +12,7 @@ import AllPins from './components/Pins';
 import PinDetailPage from './components/SinglePins';
 import CreateNewPin from './components/CreatePinForm';
 import {getAllUsers} from './store/user'
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,6 +56,7 @@ function App() {
           <CreateNewPin />      
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
