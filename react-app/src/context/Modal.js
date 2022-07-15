@@ -42,9 +42,9 @@ export function AnEditPinModal({ onClose, children }) {
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="edit-pin-modal">
+      <div id="edit-pin-modal-background" onClick={onClose} />
+      <div id="edit-pin-modal-content">
         {children}
       </div>
     </div>,
@@ -57,9 +57,9 @@ export function ADeletePinModal({ onClose, children }) {
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="delete-pin-modal">
+      <div id="delete-pin-modal-background" onClick={onClose} />
+      <div id="delete-pin-modal-content">
         {children}
       </div>
     </div>,
@@ -72,9 +72,9 @@ export function ACreateCommentModal({ onClose, children }) {
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="create-comment-modal">
+      <div id="create-comment-background" onClick={onClose} />
+      <div id="create-comment-content">
         {children}
       </div>
     </div>,
@@ -87,9 +87,9 @@ export function AnEditCommentModal({ onClose, children }) {
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="edit-comment-modal">
+      <div id="edit-comment-background" onClick={onClose} />
+      <div id="edit-comment-content">
         {children}
       </div>
     </div>,
@@ -102,9 +102,9 @@ export function ADeleteCommentModal({ onClose, children }) {
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="delete-comment-modal">
+      <div id="delete-comment-background" onClick={onClose} />
+      <div id="delete-comment-content">
         {children}
       </div>
     </div>,
