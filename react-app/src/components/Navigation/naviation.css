@@ -1,0 +1,16 @@
+* {
+    font-family:sans-serif;
+    list-style-type: none;
+}
+
+a {
+    color:red;
+    text-decoration: none;
+}
+
+.logout-button {
+    background-color: red;
+    color: white;
+    border-style: none;
+    padding: 5px 10px
+}

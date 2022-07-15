@@ -1,4 +1,14 @@
-# Flask React Project
+# PiquedInterest
+Welcome to PicquedInterest! This is a clone of pinterest.com where the user has ability to create, update, delete a pin and leave comments on a specific pin.
+
+## Live Site Link
+[PiquedInterest](https://piquedinterest.herokuapp.com/)
+
+## Features
+* Users can add, update, and delete a pin
+* Users can leave, edit, and delete their own comment.
+
+<!-- # Flask React Project
 
 This is the starter for the Flask React project.
 
@@ -126,4 +136,4 @@ each of the following variables:
 | `flask seed all`      | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details |
 | `heroku login -i`      | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser |
 | `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token |
-| `heroku run -a <app name>` | Run a command from within the deployed container on Heroku |
+| `heroku run -a <app name>` | Run a command from within the deployed container on Heroku | -->

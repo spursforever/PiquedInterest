@@ -8,6 +8,7 @@ import CreateCommentModal from "../CreateComment";
 import EditCommentModal from "../EditComment";
 import DeleteCommentModal from "../DeleteComment";
 import DeletePinModal from "../DeletePin";
+import './singlepin.css'
 
 const PinDetailPage = () => {
     const dispatch = useDispatch()
@@ -48,6 +49,7 @@ const PinDetailPage = () => {
                 <div>
                     <button onClick={homePage} style={{ cursor: 'pointer' }}>Go Back</button>
                     <img
+                        className="single-pin"
                         src={pinDetail?.img_url} />
                 </div>
                 <div>Pin Title: {pinDetail?.title}</div>

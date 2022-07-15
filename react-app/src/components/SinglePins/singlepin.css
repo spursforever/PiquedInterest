@@ -1,0 +1,32 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
+
+.single-pin {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-width: 500px;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border-style: none;
+    padding: 5px 10px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.edit-comment {
+    display: block;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border-style: none;
+    padding: 5px 10px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
