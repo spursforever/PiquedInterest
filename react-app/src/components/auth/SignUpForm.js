@@ -33,7 +33,7 @@ const SignUpForm = () => {
       return
     }
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(first_name, last_name, profile_pic , email, password));
+      const data = await dispatch(signUp(first_name, last_name, profile_pic , email, password, repeatPassword));
       if (data) {
         setErrors(data)
       }
