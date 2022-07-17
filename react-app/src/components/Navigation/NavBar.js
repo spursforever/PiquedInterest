@@ -12,45 +12,43 @@ const NavBar = () => {
  {
   return (
     <nav>
-      <ul>
-        <li>
+      <div>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
+          </div>
+        <div className="home-login">
+          <NavLink to='/login' exact={true} activeClassName='home-login'>
             Login
           </NavLink>
-        </li>
-        <li>
+        </div>
+        <div className="home-signup">
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-        </li>       
+        </div>      
        
-      </ul>
+      
     </nav>
   );
 }
 else {
 return (
   <nav>
-      <ul>
-        <li>
+      <div className='home-button'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>        
-        <li>
+        </div>        
+        <div>
           <NavLink to='/create-pin-form' exact={true} activeClassName='active'>
             Create Pin 
           </NavLink>
-        </li>
-        <li>
+        </div>
+        <div>
           <LogoutButton />
-        </li>
-      </ul>
+        </div>
+      
     </nav>
   );
 
