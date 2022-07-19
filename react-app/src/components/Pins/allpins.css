@@ -33,6 +33,7 @@ h1 {
 .pin_images {
     width: 300px;
     height: auto;
+    border-radius: 5px;
 }
 
 .pin_images:hover {
