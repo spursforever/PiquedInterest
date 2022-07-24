@@ -37,14 +37,14 @@ export function Modal({ onClose, children }) {
   );
 }
 
-export function LoginModal({ onClose, children }) {
+export function ALoginModal({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="log-in-modal">
+      <div id="log-in-modal-background" onClick={onClose} />
+      <div id="log-in-modal-content">
         {children}
       </div>
     </div>,
@@ -52,14 +52,14 @@ export function LoginModal({ onClose, children }) {
   );
 }
 
-export function SignupModal({ onClose, children }) {
+export function ASignupModal({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal">
-      <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">
+    <div id="sign-up-modal">
+      <div id="sign-up-modal-background" onClick={onClose} />
+      <div id="sign-up-modal-content">
         {children}
       </div>
     </div>,
