@@ -249,8 +249,8 @@
   padding-top: 40px;
   padding-left: 40px;
   padding-right: 40px;
-  width: 800px;
-  height: 800px;  
+  width: 540px;
+  height: 540px;  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -289,8 +289,8 @@
   padding-top: 40px;
   padding-left: 40px;
   padding-right: 40px;
-  width: 800px;
-  height: 800px;  
+  width: 540px;
+  height: 740px;  
   display: flex;
   flex-direction: column;
   justify-content: center;

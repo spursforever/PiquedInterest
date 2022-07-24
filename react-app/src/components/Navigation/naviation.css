@@ -5,9 +5,9 @@
     /* display: flex; */
 }
 
-nav {
+/* nav {
     display: flex;
-}
+} */
 
 a {
     color:red;
@@ -55,4 +55,22 @@ a {
   cursor: pointer;
   
 
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+#navigation-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 70px;   
+    margin-left: 10px;
+    margin-right: 20px;
 }
