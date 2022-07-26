@@ -8,7 +8,9 @@ const CreateCommentModal = () => {
 
     return (
         <>
-            <button className="" onClick={() => setShowModal(true)}>Create Comment</button>
+            <button className="create-comment-button" onClick={() => setShowModal(true)}>
+            <i class="fa-solid fa-plus"></i>
+            </button>
              {showModal && (
                 <ACreateCommentModal onClose={() => setShowModal(false)}>
                     <CreateCommentForm onClose={() => setShowModal(false)} />

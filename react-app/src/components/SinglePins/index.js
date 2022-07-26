@@ -13,41 +13,30 @@ import './singlepin.css'
 const PinDetailPage = () => {
     const dispatch = useDispatch()
     const { pinId } = useParams()
-
     const history = useHistory()
-    // console.log("---->>>>>", comment)
-    // const justPin = useSelector((state) => state?.pin)
-    // const pinStuff = Object.values(justPin)
+
     const pinDetail = useSelector((state) => state.pin[pinId])
     const sessionUser = useSelector((state) => state.session.user)
     const comments = useSelector((state) => state?.comment)
     const commentDetail = Object.values(comments)
-    const user = useSelector((state) => state.user)
-    
-    // console.log(pinId)
-    // console.log("comment detail:", commentDetail)
+    const user = useSelector((state) => state.user)   
     const commentMapping = commentDetail.filter((comment) => comment?.pin_id === parseInt(pinId))
-    // console.log(">>>>>>>>>>>", userComment)
-    // console.log("..........", commentMapping?.user_id)
+    
     const homePage = () => {
         history.push('/')
     }
     useEffect(() => {
         dispatch(displayOnePin(pinId))
         dispatch(getAllComments())
-    }, [dispatch, pinId])
-
-    // const removePin = (e) => {
-    //     e.preventDefault()
-    //     dispatch(deleteAPin(pinId))
-    //     history.push('/')
-    // }
+    }, [dispatch, pinId])   
     
     return (
         <>
             <div>
                 <div>
-                    <button onClick={homePage} style={{ cursor: 'pointer' }}>Go Back</button>
+                    <button onClick={homePage} style={{ cursor: 'pointer' }}>
+                    <i className="fa-solid fa-arrow-left"></i>
+                    </button>
                     <img
                         className="single-pin"
                         src={pinDetail?.img_url} />
