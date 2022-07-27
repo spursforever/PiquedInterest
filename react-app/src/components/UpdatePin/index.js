@@ -7,7 +7,9 @@ const UpdatePinModal = ({pinDetail}) => {
     
     return (
         <>
-        <button className="" onClick={()=> setShowModal(true)} style={{ cursor: 'pointer' }} >Edit Pin</button>
+        <button className="edit-pin-button" onClick={()=> setShowModal(true)} style={{ cursor: 'pointer' }} >
+        <i class="fa-solid fa-ellipsis"></i>
+        </button>
         {showModal && (
         <AnEditPinModal onClose={() => setShowModal(false)}>
           <UpdateOnePin onClose={() => setShowModal(false)} pinDetail={pinDetail}/>

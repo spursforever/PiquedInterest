@@ -8,7 +8,9 @@ const EditCommentModal = ({comment}) => {
 
     return (
         <>
-            <button className="edit-comment" onClick={() => setShowModal(true)}>Edit Comment</button>
+            <button className="edit-comment" onClick={() => setShowModal(true)}>
+            <i class="fa-solid fa-ellipsis"></i>
+            </button>
              {showModal && (
                 <AnEditCommentModal onClose={() => setShowModal(false)}>
                     <EditCommentForm  comment={comment} onClose={() => setShowModal(false)}  />

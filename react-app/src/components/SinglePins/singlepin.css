@@ -2,32 +2,217 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;   
 }
 
-.single-pin {
-    display: block;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    max-width: 500px;
-}
 
-button {
-    display: block;
+/* button {
+    display: flex;
     cursor: pointer;
     background-color: red;
     color: white;
     border-style: none;
     padding: 5px 10px;
-    margin-bottom: 25px;
-    border-radius: 5px;
-    /* margin-right:20px */
-}
+    border-radius: 5px;    
+} */
 
 .edit-comment {
-    display: block;
+   
     cursor: pointer;
-    background-color: green;
-    color: white;
+    background-color: transparent;
+    color: darkblue;
     border-style: none;
+    /* width: 50px;
+    height: 50px; */
     padding: 5px 10px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     border-radius: 5px;
+    margin-left: -8px;
+    /* margin-top: 10px; */
+    }
+
+.single-pin-page-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 100px;
+}
+
+.go-back-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.go-back-button {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;    
+    margin-right: 15px;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+}
+
+.fa-arrow-left {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.pin-detail-container {
+    display: flex;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+    background-color: white;
+    border-radius: 24px;
+    max-width: 1216px;
+    max-height: 1050px;
+    width: 100%;
+    height: auto;
+    box-shadow: rgb(0 0 0 / 40%) 0px 8px 28px;
+}
+
+.pin-image-container {
+    display: flex;
+}
+
+.single-pin {
+    display: flex;   
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    max-width: 508px;
+    width: 508px;
+    max-height: 700px;    
+    height: auto;
+}
+
+.single-pin-button-area {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-right: 34px;
+    padding-left: 34px;
+    max-width: 508px;
+    width: 508px;
+    max-height: 950px;
+    height: auto;
+}
+.single-pin-edit-and-delete {
+    display: flex;
+    /* justify-content: space-evenly; */
+    margin-top: 16px;
+    /* margin-left: -160px; */
+    margin-bottom: -20px
+    
+}
+
+.one-pin-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    word-break: break-word;
+    word-wrap: break-word;
+
+    -webkit-font-smoothing: antialiased;
+    padding-top: 26px;
+    padding-bottom: 10px;
+}
+
+.one-pin-description {
+    font-size: 20px;
+}
+
+.comment-container {
+    width: 444px;
+    height: auto;
+    margin-top: 30px;
+    overflow: auto;
+}
+
+.edit-pin-button {
+   
+    border: none;
+    color: darkblue;
+    background-color: transparent;
+    padding: 10px 10px;
+    border-radius: 20px;
+    align-items: center;
+    
+}
+
+.delete-pin-button {
+    
+    border: none;
+    color: darkblue;
+    background-color: transparent;
+    padding: 10px 10px;
+    border-radius: 20px;
+    align-items: center;
+    
+}
+.comment-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: orange;
+    margin-bottom: 5px
+}
+.create-comment-button {
+    border: none;
+    color: darkblue;
+    background-color: transparent;
+    padding: 10px 10px;
+    align-items: center;
+    margin-left: -10px;
+    /* margin-top: -20px; */
+}
+
+.delete-comment-button {
+    border: none;
+    color: darkblue;
+    background-color: transparent;
+    padding: 10px 10px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.single-pin-edit-delete-comment {
+    display: flex;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.user-post-comment {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-itself {
+    font-size: 14px;
+    margin-right: 5px;
+    font-weight: 100;
+}
+
+.fa-plus {
+    font-size: xx-large;
+}
+
+.fa-ellipsis {
+    font-size: larger;
+}
+
+.fa-trash-can {
+    font-size:larger
+}
+
+.fa-trash {
+    font-size: larger;
+}
+
+.fa-ellipsis {
+    font-size: larger;
 }

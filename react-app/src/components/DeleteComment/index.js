@@ -10,7 +10,9 @@ const DeleteCommentModal = ({comment}) => {
 
     return (
         <>
-            <button className="" onClick={() => setShowModal(true)}>Delete</button>
+            <button className="delete-comment-button" type="button" onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }}>
+            <i class="fa-solid fa-trash-can"></i>
+            </button>
              {showModal && (
                 <ADeleteCommentModal onClose={() => setShowModal(false)}>
                     <DeleteCommentForm  comment={comment} onClose={() => setShowModal(false)}  />
