@@ -10,7 +10,7 @@ const DeletePinModal = ({pinDetail}) => {
 
     return (
         <>
-            <button className="" onClick={() => setShowModal(true)}>
+            <button className="delete-pin-button" onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }}>
             <i class="fa-solid fa-trash"></i>
             </button>
              {showModal && (

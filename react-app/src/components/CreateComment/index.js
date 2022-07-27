@@ -8,7 +8,7 @@ const CreateCommentModal = () => {
 
     return (
         <>
-            <button className="create-comment-button" onClick={() => setShowModal(true)}>
+            <button className="create-comment-button" onClick={() => setShowModal(true)} style={{ cursor: 'pointer' }}>
             <i class="fa-solid fa-plus"></i>
             </button>
              {showModal && (

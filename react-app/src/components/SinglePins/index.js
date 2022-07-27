@@ -32,36 +32,40 @@ const PinDetailPage = () => {
     
     return (
         <>
-            <div>
-                <div>
-                    <button onClick={homePage} style={{ cursor: 'pointer' }}>
-                    <i className="fa-solid fa-arrow-left"></i>
+            <div className="single-pin-page-container">
+                <div className="go-back-area">
+                    <button className="go-back-button" onClick={homePage} style={{ cursor: 'pointer' }}>
+                    <i className="fas fa-arrow-left"></i>
                     </button>
-                    <img
+                  </div>  
+                  <div className="pin-detail-container">
+                    <div className="pin-image-container">
+                        <img                        
                         className="single-pin"
                         src={pinDetail?.img_url} />
-                </div>
-                <div>Pin Title: {pinDetail?.title}</div>
-                <div>Pin Description: {pinDetail?.description}</div>
-                
-                <div>
+                    </div>
+                  
+                  <div className="single-pin-button-area">
+                    <div className="single-pin-edit-and-delete">
                     {sessionUser?.id === pinDetail?.users?.id && <UpdatePinModal pinDetail={pinDetail} />}
-                    {sessionUser?.id === pinDetail?.users?.id && <DeletePinModal pinDetail={pinDetail} />}
-                         {/* <button onClick={removePin} style={{ cursor: 'pointer' }}>Delete Pin</button> */}
+                    {sessionUser?.id === pinDetail?.users?.id && <DeletePinModal pinDetail={pinDetail} />}                         
                 </div>
-                <h2>Comments</h2>
+                
+                <div className="one-pin-title">{pinDetail?.title}</div>
+                <div className="one-pin-description">{pinDetail?.description}</div>
+                
+                <div className="comment-container">
+                <div className="comment-title">Comments</div>
                 <CreateCommentModal />
-                 
-                <div>
                     {commentMapping.map(comment => (
                         <>                        
-                        <div>{user[comment?.user_id]?.first_name} {user[comment?.user_id]?.last_name}</div>
-                        <div>{comment?.content}</div>
-                        <div> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }  </div> 
-                        <div> {sessionUser?.id === comment?.user_id && <DeleteCommentModal  comment={comment} /> }  </div>
-                        </>
-                          
+                        <div className="user-post-comment">{user[comment?.user_id]?.first_name} {user[comment?.user_id]?.last_name}: <span className="comment-itself"> {comment?.content}</span></div>
+                        {/* <div className="comment-detail">{comment?.content}</div>                         */}
+                        <div className="single-pin-edit-delete-comment"> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }   {sessionUser?.id === comment?.user_id && <DeleteCommentModal  comment={comment} /> }  </div>
+                        </>                          
                         ))}
+                        </div>
+                        </div>
                         </div>                                            
 
             </div>
