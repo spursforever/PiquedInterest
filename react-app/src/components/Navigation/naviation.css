@@ -57,6 +57,12 @@ a {
 
 }
 
+.active {
+    color: black;
+    font-size: 20px;
+    
+}
+
 .profile-icon {
     width: 35px;
     height: 35px;
@@ -73,4 +79,33 @@ a {
     height: 70px;   
     margin-left: 10px;
     margin-right: 20px;
+}
+
+.log-in-button {
+    width: 88px;
+  height: 40px;
+  background-color: #E60022;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-right: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.sign-up-button {
+    width: 88px;
+  height: 40px;
+  background-color: #EFEFEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
 }
