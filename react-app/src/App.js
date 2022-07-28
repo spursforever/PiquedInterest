@@ -14,6 +14,7 @@ import CreateNewPin from './components/CreatePinForm';
 import {getAllUsers} from './store/user'
 import Footer from './components/Footer';
 import UnauthorizedPage from './components/404Page';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,6 +57,9 @@ function App() {
         <ProtectedRoute path="/create-pin-form" exact={true}>
           <CreateNewPin />      
         </ProtectedRoute>
+        <Route path="/home" exact={true}>
+          < HomePage />
+        </Route>
         <Route>
           <UnauthorizedPage />
         </Route>

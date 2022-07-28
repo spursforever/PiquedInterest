@@ -9,7 +9,7 @@ import ProfileIcon from '../../images/profile-icon.png'
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user)
-  console.log("sessionUser:", sessionUser)
+  // console.log("sessionUser:", sessionUser)
 
  if(!sessionUser)
  {
@@ -24,7 +24,7 @@ const NavBar = () => {
         />
       </div>
       <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to='/home' exact={true} activeClassName='active'>
             Home
           </NavLink>
           </div>
