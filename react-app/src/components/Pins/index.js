@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { displayAllPins } from "../../store/pin"
 import './allpins.css'
-import Footer from "../Footer";
+
 
 const AllPins = () => {
 
@@ -20,8 +20,8 @@ const AllPins = () => {
             <h1 className="all-pins">All Pins</h1>
             <div className="main-page-container">
                 {Object.values(showAllPins).map((pin) => (
+                        <div key={pin.id} className="pin_images_detail">
                     <div className="pin-stuff-container">
-                        <div className="pin_images_detail">
                             <NavLink key={`${pin?.id}`}
                                 to={`/pins/${pin?.id}`}>
 

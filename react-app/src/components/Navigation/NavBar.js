@@ -57,7 +57,7 @@ return (
         </div>        
         <div>
           <NavLink to='/create-pin-form' exact={true} activeClassName='active'>
-            Create Pin 
+            Create  
           </NavLink>
         </div>
         <div>
