@@ -20,7 +20,7 @@ h1 {
 
 .pin_images_detail {
     
-    width: 236px;
+    width: 256px;
    
     overflow: hidden;
     padding: 8px 8px 8px 8px;
@@ -32,7 +32,7 @@ h1 {
 }
 
 .pin_images {
-    width: 236px;
+    width: 256px;
     height: auto;
    
 }

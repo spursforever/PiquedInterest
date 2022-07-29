@@ -13,7 +13,7 @@ const HomePage = () => {
             <img src="https://i.pinimg.com/236x/f3/cc/05/f3cc0502456452be469293ab80ac7af5.jpg" alt="" id="image-1"/> 
                 <img src="https://i.pinimg.com/236x/63/e7/17/63e717aa8c7f988a4b42c39a0c0fae2b.jpg" alt="" id="image-2"/>
                 <img src="https://i.pinimg.com/236x/00/78/7f/00787f68683565b1d954b9397421c8e6.jpg" alt="" id="image-3"/>
-                <img src="https://i.pinimg.com/736x/fc/5c/b9/fc5cb9d1249292536ad1bf5072dedece.jpg" alt="" />
+                <img src="https://i.pinimg.com/736x/fc/5c/b9/fc5cb9d1249292536ad1bf5072dedece.jpg" alt="" id="image-4"/>
                 <img src="https://i.pinimg.com/564x/e7/a4/69/e7a4694b725f16028d4b43d74d895dbb.jpg" alt="" />
                 <img src="https://i.pinimg.com/564x/0d/b7/07/0db7076c1442eb8c61807d11de628d19.jpg" alt="" />
                 <img src="https://i.pinimg.com/564x/c9/96/e1/c996e1deb227902069482c44529b15e8.jpg" alt="" />
@@ -40,7 +40,7 @@ const HomePage = () => {
             <img src="https://i.pinimg.com/564x/38/1c/eb/381ceb6d1bf2846fff9d1fecb74af6c5.jpg" alt="" id="image-1"/> 
             <img src="https://i.pinimg.com/236x/c6/8e/6f/c68e6fa458bcc3577bbf0707c6be2b79.jpg" alt="" id="image-2"/>
             <img src="https://i.pinimg.com/564x/48/8d/0b/488d0b131b13ccac86b1e5969eaaba39.jpg" alt="" id="image-3"/>
-                <img src="https://avatars.githubusercontent.com/u/73676915?v=4" alt="" id="image-4"/>
+                <img src="https://avatars.githubusercontent.com/u/73676915?v=4" alt="" />
                 <img src="https://avatars.githubusercontent.com/u/65691441?v=4" alt="" />
                 <img src="https://avatars.githubusercontent.com/u/92695890?v=4" alt="" />
             <img src="https://avatars.githubusercontent.com/u/92718001?v=4" alt="" />
