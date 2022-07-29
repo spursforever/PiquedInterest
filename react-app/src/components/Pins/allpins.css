@@ -1,10 +1,10 @@
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
 }
 
 h1 {
-    color: orange;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: orange;  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
     text-align: center;
 }
 .main-page-container {
@@ -18,22 +18,23 @@ h1 {
     
 }
 
-.main_page_detai {
+.pin_images_detail {
     
-    width: 256px;
+    width: 236px;
+   
     overflow: hidden;
     padding: 8px 8px 8px 8px;
     display: block;
 }
 
 .pin-stuff-container {
-    margin: 0.7rem;
+    margin: 0 20px;
 }
 
 .pin_images {
-    width: 300px;
+    width: 236px;
     height: auto;
-    border-radius: 5px;
+   
 }
 
 .pin_images:hover {
@@ -44,12 +45,13 @@ h1 {
 .pin_title {
     font-size: 16px;
     text-align: left;
+    margin: 2px 20px;
     -webkit-box-orient: vertical;
     display: flex;
     max-width: 100%;
     overflow: hidden;
     word-break: break-word;
     word-wrap: break-word;
-    font-weight: 700;
+    font-weight: bold;
     -webkit-font-smoothing: antialiased;
 }
