@@ -78,13 +78,21 @@ Welcome to PicquedInterest! This is a clone of pinterest.com where the user has 
 
 9. You can sign in via Demo User or create an account yourself
 
-## Log In Page
+## Home Page
+![image](https://user-images.githubusercontent.com/94093737/181853316-9dae209d-227f-416c-af95-5fd11de5fd7e.png)
+![image](https://user-images.githubusercontent.com/94093737/181853383-5ff0f3a0-2321-4207-b0fa-d607f71d4f54.png)
 
 ## All Pins Page
+![image](https://user-images.githubusercontent.com/94093737/181853412-1c8f9499-e302-4cd0-9f0a-8d7eb63779f3.png)
 
 ## Pin Detail Page
+![image](https://user-images.githubusercontent.com/94093737/181853435-59570876-16d6-4e6f-9a01-83e871255d14.png)
 
 ## Future Features
+* Search
+* AWS
+* Board
+* Follow
 
 ## Helpful commands
 
