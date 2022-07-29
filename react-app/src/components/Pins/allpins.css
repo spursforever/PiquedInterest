@@ -15,16 +15,15 @@ h1 {
     justify-content: center;
     margin-left: 40px;
     margin-right: 40px;
-    
+    overflow: hidden;    
 }
 
-.pin_images_detail {
-    
-    width: 256px;
-   
+.pin_images_detail {    
+    width: 258px;   
     overflow: hidden;
     padding: 8px 8px 8px 8px;
     display: block;
+   
 }
 
 .pin-stuff-container {
@@ -32,8 +31,9 @@ h1 {
 }
 
 .pin_images {
-    width: 256px;
-    height: auto;
+    width: 258px;
+    height: auto;    
+    border-radius: 5px;
    
 }
 
@@ -44,7 +44,7 @@ h1 {
 
 .pin_title {
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     margin: 2px 20px;
     -webkit-box-orient: vertical;
     display: flex;
