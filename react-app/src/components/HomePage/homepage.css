@@ -74,17 +74,17 @@ img {
 }
 
 #image-1 {
-    opacity: 20%;
+    opacity: 0.2;
 }
 
 #image-2 {
-    opacity: 40%;
+    opacity: 0.4;
 }
 
 #image-3 {
-    opacity: 60%;
+    opacity: 0.6;
 }
 
 #image-4 {
-    opacity: 80%;
+    opacity: 0.8;
 }
