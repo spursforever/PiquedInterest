@@ -20,7 +20,7 @@ const AllPins = () => {
             <h1 className="all-pins">All Pins</h1>
             <div className="main-page-container">
                 {Object.values(showAllPins).map((pin) => (
-                        <div key={pin.id} className="pin_images_detail">
+                        <div className="pin_images_detail">
                     <div className="pin-stuff-container">
                             <NavLink key={`${pin?.id}`}
                                 to={`/pins/${pin?.id}`}>

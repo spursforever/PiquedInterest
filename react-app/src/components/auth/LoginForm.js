@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import "./loginform.css"
 import { useHistory } from 'react-router-dom';
@@ -36,10 +35,6 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  if (user) {
-    return <Redirect to='/' />;
-  }
 
   return (
     <div className='login-page-container'>     
