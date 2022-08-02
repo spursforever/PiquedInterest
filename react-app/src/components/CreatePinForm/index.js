@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react"
-import { createOnePin, displayAllPins } from "../../store/pin"
+import { createOnePin } from "../../store/pin"
 import "./createpinform.css"
 
 const CreateNewPin = () => {
@@ -11,7 +11,7 @@ const CreateNewPin = () => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [img_url, setImageurl] = useState("")
-    // const [link, setLink] = useState("")
+    
     const [errors, setErrors] = useState([])
     
     useEffect(() => {
@@ -46,7 +46,7 @@ const CreateNewPin = () => {
         const newPin = await dispatch(createOnePin(payload))
         if (newPin) {
             history.push('/')
-            // onClose(false)
+           
         }
     }
     const homePage = () => {

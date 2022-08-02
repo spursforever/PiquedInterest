@@ -8,8 +8,7 @@ import SignUpFormModal from '../auth/signupformmodal';
 import ProfileIcon from '../../images/profile-icon.png'
 
 const NavBar = () => {
-  const sessionUser = useSelector((state) => state.session.user)
-  // console.log("sessionUser:", sessionUser)
+  const sessionUser = useSelector((state) => state.session.user) 
 
  if(!sessionUser)
  {

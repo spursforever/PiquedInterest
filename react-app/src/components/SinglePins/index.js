@@ -59,8 +59,7 @@ const PinDetailPage = () => {
                 <CreateCommentModal />
                     {commentMapping.map(comment => (
                         <>                        
-                        <div className="user-post-comment">{user[comment?.user_id]?.first_name} {user[comment?.user_id]?.last_name}: <span className="comment-itself"> {comment?.content}</span></div>
-                        {/* <div className="comment-detail">{comment?.content}</div>                         */}
+                        <div className="user-post-comment">{user[comment?.user_id]?.first_name} {user[comment?.user_id]?.last_name}: <span className="comment-itself"> {comment?.content}</span></div>                        
                         <div className="single-pin-edit-delete-comment"> {sessionUser?.id === comment?.user_id && <EditCommentModal  comment={comment} /> }   {sessionUser?.id === comment?.user_id && <DeleteCommentModal  comment={comment} /> }  </div>
                         </>                          
                         ))}

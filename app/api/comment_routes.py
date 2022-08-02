@@ -34,16 +34,12 @@ def edit_comment(id):
     if form.validate_on_submit():
         comment = Comment.query.get(id)
         comment.content = form.content.data
-        # comment.pin_id = form.content.data
-        # comment.user_id = form.content.data
-        print("form.data :", form.data)
-        # db.session.add(comment)
+                
         db.session.commit()
         return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>', methods=["DELETE"])
-# @login_required
 def delete_comment(id):
     comment = Comment.query.get(id)    
     db.session.delete(comment)

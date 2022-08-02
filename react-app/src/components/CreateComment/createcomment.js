@@ -34,8 +34,7 @@ const CreateCommentForm = ({ onClose }) => {
             pin_id: pinId
         }
         const newComment = await dispatch(postNewComment(payload))
-        if (newComment) {
-            // history.push(`/api/pins/${pinId}`)
+        if (newComment) {           
             onClose(false);
         }
     }

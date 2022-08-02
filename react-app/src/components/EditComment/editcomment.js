@@ -33,8 +33,7 @@ const EditCommentForm = ({ onClose, comment }) => {
             pin_id: pinId
         }
         const editedComment = await dispatch(updateAComment(payload))
-        if (editedComment) {
-            // history.push(`/api/pins/${pinId}`)
+        if (editedComment) {            
             onClose(false);
         }
     }

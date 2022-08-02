@@ -44,17 +44,17 @@ export const displayAllPins = () => async (dispatch) => {
     if (response.ok) {
         const pins = await response.json();
         dispatch(allPins(pins))
-        // console.log()
+        
         return pins
     }
 }
 
 export const displayOnePin = (id) => async (dispatch) => {
     const response = await fetch(`/api/pins/${id}`)
-    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!", response)
+    
     if (response.ok) {
         const pin = await response.json();
-        // console.log("11111111111111111", pin)
+        
         dispatch(singlePin(pin))
         return pin
     }
@@ -111,17 +111,13 @@ const pinsReducer = (state = {}, action) => {
             action.pins.pins.forEach((pin) => {
                 newState[pin.id] = pin
             })
-
             return { ...newState };
         case GET_ONE_PIN:
             newState = {}
             newState[action.pin.pin.id] = action.pin.pin
-
-            // console.log("555555555", action.pin.pin.id)
             return { ...newState };
         case CREATE_PIN:
-            newState = { ...state }
-            // console.log("hiiiiiiiii", newState[action.pin])
+            newState = { ...state }            
             newState[action?.pin?.pin?.id] = action?.pin?.pin
             return newState;
         case UPDATE_PIN:

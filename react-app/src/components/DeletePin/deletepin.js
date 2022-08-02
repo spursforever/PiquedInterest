@@ -5,9 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import "./deletepin.css"
 
 const DeletePinForm = ({ pinDetail, onClose }) => {
-    const dispatch = useDispatch()
-    // const {id} = useParams()
-    // console.log('pinDetail!!!!!!!!!!!', pinDetail)
+    const dispatch = useDispatch()    
     const history = useHistory()
     const handleDelete = async (e) => {
         e.preventDefault()

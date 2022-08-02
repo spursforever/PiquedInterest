@@ -18,20 +18,16 @@ def validation_errors_to_error_messages(validation_errors):
 
 @pin_routes.route('/')
 def get_all_pins():
-    pins = Pin.query.all()
-    # print('..............', {'pins': [pin.to_dict() for pin in pins]})   
+    pins = Pin.query.all()     
     return {'pins': [pin.to_dict() for pin in pins]}
 
 @pin_routes.route('/<int:id>')
 @login_required 
 def get_one_pin(id):    
-    pin = Pin.query.get(id)
-    # print("oooooooooooooo", pin.to_dict())
-    # print("1111111111111111", {'pin': pin.to_dict()})
+    pin = Pin.query.get(id)    
     return {'pin': pin.to_dict()}
 
 @pin_routes.route('/', methods = ["POST"])
-# @login_required
 def create_a_pin():
     form = CreatePinForm()
     
@@ -41,11 +37,9 @@ def create_a_pin():
             title=form.data["title"],
             description=form.data["description"],
             img_url=form.data["img_url"],           
-            # user_id=form.data["userId"]
             user_id = current_user.id
         )
         
-        # print("99999999", new_pin)
         db.session.add(new_pin)
         db.session.commit()
         return new_pin.to_dict()

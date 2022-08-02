@@ -8,17 +8,12 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { pinId } = useParams();
-    const pin = useSelector((state) => state?.pin[pinId])
-    // const sessionUser = useSelector(state => state?.session.user)
+    const pin = useSelector((state) => state?.pin[pinId])    
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description)
-    const [img_url, setImageurl] = useState(pin?.img_url)
-    // const [link, setLink] = useState(pin?.link )
+    const [img_url, setImageurl] = useState(pin?.img_url)   
     const [errors, setErrors] = useState([])
-    // console.log("22222222222222222222",pinId)
-    // const newPin = Object.values(pin.pin)
-    // console.log("lllllll", newPin.id)
-    // console.log(";;;;;;;;;;", pinDetail.id)
+    
     useEffect(() => {
         const validationErrors = [];
         if (!title) {
@@ -45,7 +40,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
             setTitle(pin.title);
             setDescription(pin.description);
             setImageurl(pin.img_url)
-            // setLink(pin.link)
+           
         }
     }, [pin])
 
@@ -56,7 +51,7 @@ const UpdateOnePin = ({ pinDetail, onClose }) => {
             title,
             description,
             img_url,
-            // link
+           
         }
         const updatedPin = await dispatch(editOnePin(payload));
         if (updatedPin) {
