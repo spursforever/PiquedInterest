@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import LoginFormModal from '../auth/loginformmodal';
 import SignUpFormModal from '../auth/signupformmodal';
 import ProfileIcon from '../../images/profile-icon.png'
+import Search from './search';
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user) 
@@ -53,7 +54,10 @@ return (
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </div>        
+        </div>
+        <div>
+          <Search />
+          </div>        
         <div>
           <NavLink to='/create-pin-form' exact={true} activeClassName='active'>
             Create  
