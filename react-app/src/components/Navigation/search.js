@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import "./search.css"
 
 const Search = () => {
  const [searchWord, setSearchWord ] = useState('')
@@ -26,9 +27,10 @@ const Search = () => {
    }
  }, [searchWord])
  return (
-   <form>
+   <form className='searchForm'>
       <div>
          <input
+         className='searchInput'
          onClick={e=> searchBar.current.style.display = 'flex'}
          placeholder='Search your pin'
          value={searchWord}
@@ -37,10 +39,10 @@ const Search = () => {
          autoComplete='on'
          >
          </input>
-         <div ref={searchBar} onMouseLeave={ e => {
+         <div id="search-result" ref={searchBar} onMouseLeave={ e => {
             searchBar.current.style.display = 'none'
          }}>
-         {searchresult?.map(pin => <Link to={`/pins/${pin?.id}`}> {pin?.title}</Link>)}
+         {searchresult?.map(pin => <Link to={`/pins/${pin?.id}`}  key={pin?.id} className="pin-result" > {pin?.title}</Link>)}
          </div>
       </div>
       </form>
