@@ -14,8 +14,14 @@ const CreateCommentForm = ({ onClose }) => {
 
     const [content, setComment] = useState('')
     const [errors, setErrors] = useState([])
-
-    useEffect(() => {
+    
+    const commentSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            content,
+            user_id: sessionUser.id,
+            pin_id: pinId
+        }
         const validationErrors = []
         if (!content) {
             validationErrors.push("Please provide a comment")
@@ -24,15 +30,6 @@ const CreateCommentForm = ({ onClose }) => {
             validationErrors.push("You have exceeded maximum character limit")
         }
         setErrors(validationErrors)
-    }, [content])
-
-    const commentSubmit = async (e) => {
-        e.preventDefault();
-        const payload = {
-            content,
-            user_id: sessionUser.id,
-            pin_id: pinId
-        }
         const newComment = await dispatch(postNewComment(payload))
         if (newComment) {           
             onClose(false);
