@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { postNewComment } from "../../store/comment";
 import './createcomment.css'
 
 const CreateCommentForm = ({ onClose }) => {
     const { pinId } = useParams()
     console.log("id:", pinId)
-    const dispatch = useDispatch()
-    const history = useHistory()
+    const dispatch = useDispatch()    
     const sessionUser = useSelector((state) => state.session.user)
 
     const [content, setComment] = useState('')
     const [errors, setErrors] = useState([])
-
-    useEffect(() => {
+    
+    const commentSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            content,
+            user_id: sessionUser.id,
+            pin_id: pinId
+        }
         const validationErrors = []
         if (!content) {
             validationErrors.push("Please provide a comment")
@@ -24,15 +29,6 @@ const CreateCommentForm = ({ onClose }) => {
             validationErrors.push("You have exceeded maximum character limit")
         }
         setErrors(validationErrors)
-    }, [content])
-
-    const commentSubmit = async (e) => {
-        e.preventDefault();
-        const payload = {
-            content,
-            user_id: sessionUser.id,
-            pin_id: pinId
-        }
         const newComment = await dispatch(postNewComment(payload))
         if (newComment) {           
             onClose(false);

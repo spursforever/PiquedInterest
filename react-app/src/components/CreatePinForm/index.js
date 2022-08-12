@@ -12,14 +12,21 @@ const CreateNewPin = () => {
     const [description, setDescription] = useState("")
     const [img_url, setImageurl] = useState("")
     
-    const [errors, setErrors] = useState([])
-    
-    useEffect(() => {
+    const [errors, setErrors] = useState([])   
+ 
+    const pinSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            title,
+            description,
+            img_url,
+            
+        }
         const validationErrors = [];
         if (!title) {
             validationErrors.push("Please provide pin's title")
         }
-        if (title.length > 40) {
+        if (title.length > 50) {
             validationErrors.push("You have exceeded title's maximum character limit")
         }
         if (description.length > 160) {
@@ -33,16 +40,7 @@ const CreateNewPin = () => {
         }
         if(!img_url.startsWith("https://")) validationErrors.push("Image url must start in https:// format") 
         setErrors(validationErrors)
-    }, [title, description, img_url])   
-
-    const pinSubmit = async (e) => {
-        e.preventDefault();
-        const payload = {
-            title,
-            description,
-            img_url,
-            
-        }
+        
         const newPin = await dispatch(createOnePin(payload))
         if (newPin) {
             history.push('/')
