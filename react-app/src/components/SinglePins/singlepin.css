@@ -103,7 +103,7 @@
     /* justify-content: space-evenly; */
     margin-top: 16px;
     /* margin-left: -160px; */
-    margin-bottom: -20px
+    /* margin-bottom: -20px */
     
 }
 
@@ -114,12 +114,12 @@
     -webkit-box-orient: vertical;
     display: -webkit-box;
     max-width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     word-break: break-word;
     word-wrap: break-word;
 
     -webkit-font-smoothing: antialiased;
-    padding-top: 26px;
+    padding-top: 0px;
     padding-bottom: 10px;
 }
 
