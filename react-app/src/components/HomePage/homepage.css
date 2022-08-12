@@ -2,7 +2,7 @@
 .home-page {
     margin-left: 0;
     margin-right: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .home-page-container {
