@@ -2,7 +2,7 @@
 .home-page {
     margin-left: 0;
     margin-right: 0;
-    overflow: visible;
+    
 }
 
 .home-page-container {
@@ -32,7 +32,7 @@
     grid-template-columns: 107px 107px 107px 107px 107px 107px 107px;
     grid-gap: 10.5rem;
     align-items: center;    
-    overflow-x:hidden;
+    overflow: visible;
 }
 
 img {

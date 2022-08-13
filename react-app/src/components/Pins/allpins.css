@@ -35,7 +35,7 @@ h1 {
 .pin_images {
     width: 256px;
     height: 424px;    
-    border-radius: 15px;
+    border-radius: 5px;
     
    
 }
@@ -57,5 +57,5 @@ h1 {
     word-wrap: break-word;
     font-weight: bold;
     -webkit-font-smoothing: antialiased;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
