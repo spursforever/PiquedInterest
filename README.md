@@ -89,7 +89,6 @@ Welcome to PicquedInterest! This is a clone of pinterest.com where the user has 
 ![image](https://user-images.githubusercontent.com/94093737/181853435-59570876-16d6-4e6f-9a01-83e871255d14.png)
 
 ## Future Features
-* Search
 * AWS
 * Board
 * Follow
